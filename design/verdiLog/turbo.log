@@ -1,7 +1,0 @@
-Command Line: /eda/synopsys/2020-21/RHELx86/VERDI_2020.12/platform/LINUXAMD64/bin/Novas -i -simflow -simBin simv -simOpt  
-uname(Linux vlsi-ria60 3.10.0-1160.62.1.el7.x86_64 #1 SMP Wed Mar 23 09:04:02 UTC 2022 x86_64)
-type= DS_SCOPE element= 1 field= 1
-VERILOG test_tb
------
-second field= DebussyLib
-third field= test_tb
