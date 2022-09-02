@@ -1,0 +1,10 @@
+simSetSimulator "-vcssv" -exec "./simv" -args " " -uvmDebug on
+debImport "-i" "-simflow" "-dbdir" "./simv.daidir"
+srcTBInvokeSim
+srcHBSelect "test_tb.U1" -win $_nTrace1
+srcHBSelect "test_tb.U1" -win $_nTrace1
+wvCreateWindow
+srcHBAddObjectToWave -clipboard
+wvDrop -win $_nWave3
+srcTBRunSim
+debExit

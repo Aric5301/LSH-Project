@@ -1,0 +1,420 @@
+#######################################################################################
+# log primitive debug message of FSDB dumping                                         #
+# This is for R&D to analyze when there are issues happening when FSDB dump           #
+#######################################################################################
+ANF: vcsd_get_serial_mode_status('/users/epebar/Project/design/simv: undefined symbol: vcsd_get_serial_mode_status')
+ANF: vcsd_enable_sva_success_callback('/users/epebar/Project/design/simv: undefined symbol: vcsd_enable_sva_success_callback')
+ANF: vcsd_disable_sva_success_callback('/users/epebar/Project/design/simv: undefined symbol: vcsd_disable_sva_success_callback')
+ANF: vcsd_get_power_scope_name('/users/epebar/Project/design/simv: undefined symbol: vcsd_get_power_scope_name')
+ANF: vcsd_begin_no_value_var_info('/users/epebar/Project/design/simv: undefined symbol: vcsd_begin_no_value_var_info')
+ANF: vcsd_end_no_value_var_info('/users/epebar/Project/design/simv: undefined symbol: vcsd_end_no_value_var_info')
+ANF: vcsd_remove_xprop_merge_mode_callback('/users/epebar/Project/design/simv: undefined symbol: vcsd_remove_xprop_merge_mode_callback')
+ANF: vhpi_get_cb_info('/users/epebar/Project/design/simv: undefined symbol: vhpi_get_cb_info')
+ANF: vhpi_free_handle('/users/epebar/Project/design/simv: undefined symbol: vhpi_free_handle')
+ANF: vhpi_fetch_vcsd_handle('/users/epebar/Project/design/simv: undefined symbol: vhpi_fetch_vcsd_handle')
+ANF: vhpi_fetch_vpi_handle('/users/epebar/Project/design/simv: undefined symbol: vhpi_fetch_vpi_handle')
+ANF: vhpi_has_verilog_parent('/users/epebar/Project/design/simv: undefined symbol: vhpi_has_verilog_parent')
+ANF: vhpi_is_verilog_scope('/users/epebar/Project/design/simv: undefined symbol: vhpi_is_verilog_scope')
+ANF: scsd_xprop_is_enabled('/users/epebar/Project/design/simv: undefined symbol: scsd_xprop_is_enabled')
+ANF: scsd_xprop_sig_is_promoted('/users/epebar/Project/design/simv: undefined symbol: scsd_xprop_sig_is_promoted')
+ANF: scsd_xprop_int_xvalue('/users/epebar/Project/design/simv: undefined symbol: scsd_xprop_int_xvalue')
+ANF: scsd_xprop_bool_xvalue('/users/epebar/Project/design/simv: undefined symbol: scsd_xprop_bool_xvalue')
+ANF: scsd_xprop_enum_xvalue('/users/epebar/Project/design/simv: undefined symbol: scsd_xprop_enum_xvalue')
+ANF: scsd_xprop_register_merge_mode_cb('/users/epebar/Project/design/simv: undefined symbol: scsd_xprop_register_merge_mode_cb')
+ANF: scsd_xprop_delete_merge_mode_cb('/users/epebar/Project/design/simv: undefined symbol: scsd_xprop_delete_merge_mode_cb')
+ANF: scsd_xprop_get_merge_mode('/users/epebar/Project/design/simv: undefined symbol: scsd_xprop_get_merge_mode')
+ANF: scsd_thread_get_info('/users/epebar/Project/design/simv: undefined symbol: scsd_thread_get_info')
+ANF: scsd_thread_vc_init('/users/epebar/Project/design/simv: undefined symbol: scsd_thread_vc_init')
+ANF: scsd_master_set_delta_sync_cbk('/users/epebar/Project/design/simv: undefined symbol: scsd_master_set_delta_sync_cbk')
+ANF: scsd_fgp_get_fsdb_cores('/users/epebar/Project/design/simv: undefined symbol: scsd_fgp_get_fsdb_cores')
+ANF: vhdi_dt_get_type('/users/epebar/Project/design/simv: undefined symbol: vhdi_dt_get_type')
+ANF: vhdi_dt_get_key('/users/epebar/Project/design/simv: undefined symbol: vhdi_dt_get_key')
+ANF: vhdi_dt_get_vhdl_enum_info('/users/epebar/Project/design/simv: undefined symbol: vhdi_dt_get_vhdl_enum_info')
+ANF: vhdi_dt_get_vhdl_physical_info('/users/epebar/Project/design/simv: undefined symbol: vhdi_dt_get_vhdl_physical_info')
+ANF: vhdi_dt_get_vhdl_array_info('/users/epebar/Project/design/simv: undefined symbol: vhdi_dt_get_vhdl_array_info')
+ANF: vhdi_dt_get_vhdl_record_info('/users/epebar/Project/design/simv: undefined symbol: vhdi_dt_get_vhdl_record_info')
+ANF: vhdi_def_traverse_module('/users/epebar/Project/design/simv: undefined symbol: vhdi_def_traverse_module')
+ANF: vhdi_def_traverse_scope('/users/epebar/Project/design/simv: undefined symbol: vhdi_def_traverse_scope')
+ANF: vhdi_def_traverse_variable('/users/epebar/Project/design/simv: undefined symbol: vhdi_def_traverse_variable')
+ANF: vhdi_def_get_module_id_by_vhpi('/users/epebar/Project/design/simv: undefined symbol: vhdi_def_get_module_id_by_vhpi')
+ANF: vhdi_def_get_handle_by_module_id('/users/epebar/Project/design/simv: undefined symbol: vhdi_def_get_handle_by_module_id')
+ANF: vhdi_def_get_variable_info_by_vhpi('/users/epebar/Project/design/simv: undefined symbol: vhdi_def_get_variable_info_by_vhpi')
+ANF: vhdi_def_free('/users/epebar/Project/design/simv: undefined symbol: vhdi_def_free')
+ANF: vhdi_ist_traverse_scope('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_traverse_scope')
+ANF: vhdi_ist_traverse_variable('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_traverse_variable')
+ANF: vhdi_ist_convert_by_vhpi('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_convert_by_vhpi')
+ANF: vhdi_ist_clone('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_clone')
+ANF: vhdi_ist_free('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_free')
+ANF: vhdi_ist_hash_key('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_hash_key')
+ANF: vhdi_ist_compare('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_compare')
+ANF: vhdi_ist_get_value_addr('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_get_value_addr')
+ANF: vhdi_set_scsd_callback('/users/epebar/Project/design/simv: undefined symbol: vhdi_set_scsd_callback')
+ANF: vhdi_cbk_set_force_callback('/users/epebar/Project/design/simv: undefined symbol: vhdi_cbk_set_force_callback')
+ANF: vhdi_trigger_init_force('/users/epebar/Project/design/simv: undefined symbol: vhdi_trigger_init_force')
+ANF: vhdi_ist_check_scsd_callback('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_check_scsd_callback')
+ANF: vhdi_ist_add_scsd_callback('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_add_scsd_callback')
+ANF: vhdi_ist_remove_scsd_callback('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_remove_scsd_callback')
+ANF: vhdi_ist_get_scsd_user_data('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_get_scsd_user_data')
+ANF: vhdi_add_time_change_callback('/users/epebar/Project/design/simv: undefined symbol: vhdi_add_time_change_callback')
+ANF: vhdi_get_real_value_by_value_addr('/users/epebar/Project/design/simv: undefined symbol: vhdi_get_real_value_by_value_addr')
+ANF: vhdi_get_64_value_by_value_addr('/users/epebar/Project/design/simv: undefined symbol: vhdi_get_64_value_by_value_addr')
+ANF: vhdi_xprop_inst_is_promoted('/users/epebar/Project/design/simv: undefined symbol: vhdi_xprop_inst_is_promoted')
+ANF: vdi_ist_convert_by_vhdi('/users/epebar/Project/design/simv: undefined symbol: vdi_ist_convert_by_vhdi')
+ANF: vhdi_ist_get_module_id('/users/epebar/Project/design/simv: undefined symbol: vhdi_ist_get_module_id')
+ANF: vhdi_refine_foreign_scope_type('/users/epebar/Project/design/simv: undefined symbol: vhdi_refine_foreign_scope_type')
+ANF: vhdi_flush_callback('/users/epebar/Project/design/simv: undefined symbol: vhdi_flush_callback')
+ANF: vhdi_set_orig_name('/users/epebar/Project/design/simv: undefined symbol: vhdi_set_orig_name')
+ANF: vhdi_set_dump_pt('/users/epebar/Project/design/simv: undefined symbol: vhdi_set_dump_pt')
+ANF: vhdi_get_fsdb_option('/users/epebar/Project/design/simv: undefined symbol: vhdi_get_fsdb_option')
+ANF: vhdi_fgp_get_mode('/users/epebar/Project/design/simv: undefined symbol: vhdi_fgp_get_mode')
+ANF: vhdi_node_register_composite_var('/users/epebar/Project/design/simv: undefined symbol: vhdi_node_register_composite_var')
+ANF: vhdi_node_analysis('/users/epebar/Project/design/simv: undefined symbol: vhdi_node_analysis')
+ANF: vhdi_node_id('/users/epebar/Project/design/simv: undefined symbol: vhdi_node_id')
+ANF: vhdi_node_ist_check_scsd_callback('/users/epebar/Project/design/simv: undefined symbol: vhdi_node_ist_check_scsd_callback')
+ANF: vhdi_node_ist_add_scsd_callback('/users/epebar/Project/design/simv: undefined symbol: vhdi_node_ist_add_scsd_callback')
+ANF: vhdi_node_ist_get_value_addr('/users/epebar/Project/design/simv: undefined symbol: vhdi_node_ist_get_value_addr')
+ANF: vhdi_enc_def_traverse_module('/users/epebar/Project/design/simv: undefined symbol: vhdi_enc_def_traverse_module')
+ANF: vhdi_enc_def_traverse_scope('/users/epebar/Project/design/simv: undefined symbol: vhdi_enc_def_traverse_scope')
+ANF: vhdi_enc_def_traverse_variable('/users/epebar/Project/design/simv: undefined symbol: vhdi_enc_def_traverse_variable')
+ANF: vhdi_enc_ist_traverse_scope('/users/epebar/Project/design/simv: undefined symbol: vhdi_enc_ist_traverse_scope')
+ANF: vhdi_enc_ist_traverse_variable('/users/epebar/Project/design/simv: undefined symbol: vhdi_enc_ist_traverse_variable')
+ANF: vhdi_enc_ist_get_module_id('/users/epebar/Project/design/simv: undefined symbol: vhdi_enc_ist_get_module_id')
+ANF: vhdi_enc_def_get_handle_by_module_id('/users/epebar/Project/design/simv: undefined symbol: vhdi_enc_def_get_handle_by_module_id')
+VCS compile option:
+ option[0]: /users/epebar/Project/design/simv
+ option[1]: -sml=verdi
+ option[2]: +UVM_VERDI_TRACE=UVM_AWARE
+ option[3]: +fsdb+gate=off
+ option[4]: -ucli2Proc
+ option[5]: -ucli
+ option[6]: -l
+ option[7]: /users/epebar/Project/design/verdiLog/sim.log
+ option[8]: /eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12/linux64/bin/vcs1
+ option[9]: -Mcc=gcc
+ option[10]: -Mcplusplus=g++
+ option[11]: -Masflags=
+ option[12]: -Mcfl= -pipe -fPIC -O -I/eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12/include 
+ option[13]: -Mxllcflags=
+ option[14]: -Mxcflags= -pipe -fPIC -I/eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12/include
+ option[15]: -Mldflags= -rdynamic 
+ option[16]: -Mout=simv
+ option[17]: -Mamsrun=
+ option[18]: -Mvcsaceobjs=
+ option[19]: -Mobjects= /eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12/linux64/lib/liberrorinf.so /eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12/linux64/lib/libsnpsmalloc.so /eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12/linux64/lib/libvfs.so 
+ option[20]: -Mexternalobj=
+ option[21]: -Msaverestoreobj=/eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12/linux64/lib/vcs_save_restore_new.o
+ option[22]: -Mcrt0=
+ option[23]: -Mcrtn=
+ option[24]: -Mcsrc=
+ option[25]: -Msyslibs=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/share/PLI/VCS/LINUX64/pli.a -ldl 
+ option[26]: -uum
+ option[27]: test_tb
+ option[28]: -mxunielab
+ option[29]: -uni_make
+ option[30]: -Xhdlxmropt
+ option[31]: -kdb
+ option[32]: -Xufe=2steps
+ option[33]: -debug_access+all
+ option[34]: +vpi
+ option[35]: +vcsd1
+ option[36]: +itf+/eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12/linux64/lib/vcsdp_lite.tab
+ option[37]: -full64
+ option[38]: -uum
+ option[39]: -elaboration_options=/tmp/vcs_20220902125309_14938/elaboptfile_14938
+ option[40]: -full64
+ option[41]: -picarchive
+ option[42]: -P
+ option[43]: /eda/synopsys/2020-21/RHELx86/VERDI_2020.12/share/PLI/VCS/LINUX64/verdi.tab
+ option[44]: -fsdb
+ option[45]: -VHDLelab=-mxunielab -uni_make -nc -Xhdlxmropt -kdb -uum -elaboration_options /tmp/vcs_20220902125309_14938/elaboptfile_14938 -picarchive -fsdb -debug_acc_options all 
+ option[46]: -gen_obj
+ option[47]: -f
+ option[48]: simv.daidir/mxopt.db
+ option[49]: -load
+ option[50]: /eda/synopsys/2020-21/RHELx86/VERDI_2020.12/share/PLI/VCS/LINUX64/libnovas.so:FSDBDumpCmd
+Chronologic Simulation VCS Release R-2020.12_Full64
+Linux 3.10.0-1160.62.1.el7.x86_64 #1 SMP Wed Mar 23 09:04:02 UTC 2022 x86_64
+CPU cores: 8
+Limit information:
+======================================
+cputime		unlimited
+filesize		unlimited
+datasize		unlimited
+stacksize		unlimited
+coredumpsize		1 kbytes
+memoryuse		unlimited
+vmemoryuse		unlimited
+descriptors		4096
+memorylocked		unlimited
+maxproc		4096
+======================================
+(Special)Runtime environment variables:
+
+Runtime environment variables:
+REMOTEHOST=132.69.238.103
+VNCDESKTOP=vlsi-ria60:4 (epebar)
+SNPS_TAURUS_MD=/eda/synopsys/2020-21/RHELx86/TAURUS-MD_2020.09
+MANPATH=.:/usr/man:/usr/openwin/share/man:/usr/share/man:/usr/local/manL:/usr/local/man:/hio/gnu/xemacs/man:/usr/dt/share/man:/usr/java1.2/man:/eda/synopsys/2020-21/RHELx86/ESP_2020.09-SP1/doc/esp/man:/eda/synopsys/2020-21/RHELx86/FM_2020.09-SP2/doc/fm/man:/eda/synopsys/2020-21/RHELx86/ICC2_2020.09-SP2/doc/ICC2/man:/eda/synopsys/2020-21/RHELx86/ICC_2020.09-SP2/doc/icc/man:/eda/synopsys/2020-21/RHELx86/LC_2020.09-SP2/doc/syn/man:/eda/synopsys/2020-21/RHELx86/MW_2020.09-SP2/doc/mwm/man:/eda/synopsys/2020-21/RHELx86/MW_2020.09-SP2/doc/mwm/man:/eda/synopsys/2020-21/RHELx86/PT_2020.09-SP2/doc/pt/man:/eda/synopsys/2020-21/RHELx86/SYN_2020.09-SP2/doc/syn/man:/eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12/doc/man
+SYNOPSYS_LC_ROOT=/eda/synopsys/2020-21/RHELx86/LC_2020.09-SP2/
+XDG_SESSION_ID=261
+SSH_AGENT_PID=16866
+SNPS_SYN=/eda/synopsys/2020-21/RHELx86/SYN_2020.09-SP2
+SYNOPSYS_TMAX=/eda/synopsys/2020-21/RHELx86/TMAX_2020.09-SP2/txs
+HOSTNAME=vlsi-ria60
+NOVAS_SYNC_MOTIF_DISP=
+IMSETTINGS_INTEGRATE_DESKTOP=yes
+SNPS_LC=/eda/synopsys/2020-21/RHELx86/LC_2020.09-SP2
+SNPS_ICC2=/eda/synopsys/2020-21/RHELx86/ICC2_2020.09-SP2
+GIO_LAUNCHED_DESKTOP_FILE_PID=14200
+SELINUX_ROLE_REQUESTED=
+NOVAS_HOME=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12
+TERM=vt100
+HOST=vlsi-ria60
+SHELL=/bin/tcsh
+XDG_MENU_PREFIX=gnome-
+CCDIR=/eda/synopsys/2020-21/RHELx86/CUSTOM-COMP_2020.12
+SNPS_SAB=/eda/synopsys/2020-21/RHELx86/SABER_2020.03-2
+SKIP_CDS_DIALOG=
+SSH_CLIENT=132.69.238.103 53289 22
+KONSOLE_DBUS_SERVICE=:1.145
+DMW_RSH_PATH=/usr/bin/ssh
+RHEL_VERSION=7
+DESIGNWARE_HOME=/eda/synopsys/2020-21/RHELx86/VIP_2020.12
+STROOT=/eda/synopsys/2020-21/RHELx86/SENTAURUS_2020.09-SP1
+KONSOLE_PROFILE_NAME=Shell
+PERL5LIB=/users/epebar/perl5/lib/perl5
+SPS_FONT_PATH=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/font
+GJS_DEBUG_OUTPUT=stderr
+SELINUX_USE_CURRENT_RANGE=
+SABER_MODELSIM=/eda/synopsys/2020-21/RHELx86/SABER_2020.03-2/Saber/bin/sabermti.so
+VCS_STACK_EXEC=true
+VCS_TARGET_ARCH=amd64
+WINDOWID=37748792
+SPS_XFONT_PATH=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/XFont
+QTDIR=/usr/lib64/qt-3.3
+VCS_PATHMAP_PRELOAD_DONE=1
+QTINC=/usr/lib64/qt-3.3/include
+SHELL_SESSION_ID=18b55522aa614000b6f588b8841388f7
+GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+SNPS_ESP=/eda/synopsys/2020-21/RHELx86/ESP_2020.09-SP1
+SNPS_TMAX=/eda/synopsys/2020-21/RHELx86/TMAX_2020.09-SP2/txs
+PERL_MB_OPT=--install_base /users/epebar/perl5
+SNPS_SIS=/eda/synopsys/2020-21/RHELx86/SILICONSMART_2020.12
+SNPS_SENTAURUS_PCM=/eda/synopsys/2020-21/RHELx86/SENTAURUS-PCM_2020.06
+SSH_TTY=/dev/pts/1
+LC_ALL=C
+SG_HTML_BROWSER=/usr/bin/firefox
+SNPS_CSIM=/eda/synopsys/2020-21/RHELx86/CUSTOM-SIM_2020.12-1
+IMSETTINGS_MODULE=none
+QT_GRAPHICSSYSTEM_CHECKED=1
+GROUP=mail
+USER=epebar
+LD_LIBRARY_PATH=/usr/dt/lib/:/usr/openwin/lib:/usr/local/lib:/eda/synopsys/2020-21/RHELx86/LC_2020.09-SP2linux64/lc/shlib:/eda/synopsys/2020-21/RHELx86/SABER_2020.03-2/bin
+LS_COLORS=rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:
+HSPICE_64=1
+XNLSPATH=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/etc/access/nls
+STRELEASE=current
+SNPS_EUCLIDE=/eda/synopsys/2020-21/RHELx86/EUCLIDE_2020.12-1
+SNPS_SFPGA=/eda/synopsys/2020-21/RHELx86/SFPGA_2020.09-SP1
+HOSTTYPE=x86_64-linux
+SSH_AUTH_SOCK=/run/user/4902/keyring/ssh
+SNPS_STARRC=/eda/synopsys/2020-21/RHELx86/STARRC_2020.09-SP2
+MALLOC_ARENA_MAX=1
+SYN_PROTOCOMP=/eda/synopsys/2020-21/RHELx86/PROTOCOMP_2020.03-SP2
+SNPS_FM=/eda/synopsys/2020-21/RHELx86/FM_2020.09-SP2
+SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/16761,unix/unix:/tmp/.ICE-unix/16761
+ARCH1=AMD.64
+GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/kde4/konsole.desktop
+VC_STATIC_HOME=/eda/synopsys/2020-21/RHELx86/VC-STATIC_2020.12
+GNOME_SHELL_SESSION_MODE=classic
+FINESIM_HOME=/eda/synopsys/2020-21/RHELx86/FINESIM_2020.12
+MAIL=/var/spool/mail/epebar
+PATH=/bin:/usr/local/bin:/usr/ucb:/usr/openwin/bin:/bin:/usr/bin:/usr/lib:/usr/etc:/sbin:/usr/sbin:/local/bin:/usr/5bin:/usr/bin/X11:.:/eda/synopsys/2020-21/RHELx86/CORETOOLS_2020.12-1/bin:/eda/synopsys/2020-21/RHELx86/CUSTOM-COMP_2020.12/bin:/eda/synopsys/2020-21/RHELx86/CUSTOM-SIM_2020.12-1/bin:/eda/synopsys/2020-21/RHELx86/CUSTOM-SIM_2020.12-1/bin:/eda/synopsys/2020-21/RHELx86/CUSTOM-WV_2020.12/bin:/eda/synopsys/2020-21/RHELx86/CUSTOM-WV_2020.12/bin:/eda/synopsys/2020-21/RHELx86/ESP_2020.09-SP1/bin:/eda/synopsys/2020-21/RHELx86/EUCLIDE_2020.12-1/RHEL7/linux.gtk.x86_64/eclipse/:/eda/synopsys/2020-21/RHELx86/FINESIM_2020.12/bin:/eda/synopsys/2020-21/RHELx86/FM_2020.09-SP2/bin:/eda/synopsys/2020-21/RHELx86/HSIMPLUS_2020.12/bin:/eda/synopsys/2020-21/RHELx86/HSIMPLUS_2020.12/bin:/eda/synopsys/2020-21/RHELx86/HSPICE_2020.12/hspice/bin:/eda/synopsys/2020-21/RHELx86/HSPICE_2020.12/hspice/cdpl/bin:/eda/synopsys/2020-21/RHELx86/ICC2_2020.09-SP2/bin:/eda/synopsys/2020-21/RHELx86/ICC_2020.09-SP2/bin:/eda/synopsys/2020-21/RHELx86/ICVWB_2020.09-SP1/bin:/eda/synopsys/2020-21/RHELx86/ICV_2020.09-SP2/bin/LINUX.64:/eda/synopsys/2020-21/RHELx86/LC_2020.09-SP2/bin:/eda/synopsys/2020-21/RHELx86/MW_2020.09-SP2/bin/AMD.64:/eda/synopsys/2020-21/RHELx86/MW_2020.09-SP2/bin/AMD.64:/eda/synopsys/2020-21/RHELx86/NT_2020.09-SP2/bin:/eda/synopsys/2020-21/RHELx86/PROTOCOMP_2020.03-SP2/bin:/eda/synopsys/2020-21/RHELx86/PT_2020.09-SP2/bin:/eda/synopsys/2020-21/RHELx86/SABER_2020.03-2/ai_bin:/eda/synopsys/2020-21/RHELx86/SEN-PROC-EXP_2020.09-SP1/bin:/eda/synopsys/2020-21/RHELx86/SENTAURUS-PCM_2020.06/bin:/eda/synopsys/2020-21/RHELx86/SENTAURUS_2020.09-SP1/bin:/eda/synopsys/2020-21/RHELx86/SFPGA_2020.09-SP1/bin:/eda/synopsys/2020-21/RHELx86/SILICONSMART_2020.12/bin:/eda/synopsys/2020-21/RHELx86/SILVER_2020.06-SP1/bin:/eda/synopsys/2020-21/RHELx86/SPYGLASS_2020.12/SPYGLASS_HOME/bin:/eda/synopsys/2020-21/RHELx86/STARRC_2020.09-SP2/bin:/eda/synopsys/2020-21/RHELx86/SYN_2020.09-SP2/bin:/eda/synopsys/2020-21/RHELx86/TAURUS-MD_2020.09/bin:/eda/synopsys/2020-21/RHELx86/TAURUS-MD_2020.09/bin:/eda/synopsys/2020-21/RHELx86/TAURUS-TS4_2020.09/bin:/eda/synopsys/2020-21/RHELx86/TMAX_2020.09-SP2/txs/bin:/eda/synopsys/2020-21/RHELx86/VC-STATIC_2020.12/bin:/eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12/bin:/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/bin:/eda/synopsys/2020-21/RHELx86/VIP_2020.12/bin
+QT_IM_MODULE=ibus
+SABER_HOME=/eda/synopsys/2020-21/RHELx86/SABER_2020.03-2/Saber
+VERDI_HOME=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12
+PWD=/users/epebar/Project/design
+SNPS_CT=/eda/synopsys/2020-21/RHELx86/CORETOOLS_2020.12-1
+XMODIFIERS=@im=none
+VCS_HOME=/eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12
+KONSOLE_DBUS_WINDOW=/Windows/2
+SNPS_MW=/eda/synopsys/2020-21/RHELx86/MW_2020.09-SP2
+SYS_PROG_NAME=verdi
+LANG=C
+DRCTEMPDIR=/tmp/epebardrc
+SNPS_CWV=/eda/synopsys/2020-21/RHELx86/CUSTOM-WV_2020.12
+MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles
+SNPS_HSPICE=/eda/synopsys/2020-21/RHELx86/HSPICE_2020.12/hspice
+KDEDIRS=/usr
+SG_PDF_VIEWER=/usr/bin/xpdf
+SNPS_VC=/eda/synopsys/2020-21/RHELx86/VC-STATIC_2020.12
+LOADEDMODULES=
+SNPS_ICV=/eda/synopsys/2020-21/RHELx86/ICV_2020.09-SP2
+SNPS_PT=/eda/synopsys/2020-21/RHELx86/PT_2020.09-SP2
+SNPS_SPE=/eda/synopsys/2020-21/RHELx86/SEN-PROC-EXP_2020.09-SP1
+SILVER_HOME=/eda/synopsys/2020-21/RHELx86/SILVER_2020.06-SP1
+SELINUX_LEVEL_REQUESTED=
+KONSOLE_DBUS_SESSION=/Sessions/2
+SYS_INST_DIR=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12
+CDS_Netlisting_Mode=Analog
+XA_64=1
+LM_LICENSE_FILE=/etc/local/synopsys/synopsys.lic:@132.68.59.79:/etc/local/synopsys/synopsys.lic:@132.68.59.69
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SNPS_SILVER=/eda/synopsys/2020-21/RHELx86/SILVER_2020.06-SP1
+PERL_HOMEDIR=1
+SNPS_FSIM=/eda/synopsys/2020-21/RHELx86/FINESIM_2020.12
+COLORFGBG=15;0
+HOME=/users/epebar
+SHLVL=4
+OSTYPE=linux
+SNPS_HSIM=/eda/synopsys/2020-21/RHELx86/HSIMPLUS_2020.12
+LANGUAGE=
+ICV_INCLUDES=/eda/synopsys/2020-21/RHELx86/ICV_2020.09-SP2/include
+VCS_EXEC_DONE=1
+VERDI_ORIGNAL_LD_LIBRARY_PATH=/usr/dt/lib/:/usr/openwin/lib:/usr/local/lib:/eda/synopsys/2020-21/RHELx86/LC_2020.09-SP2linux64/lc/shlib:/eda/synopsys/2020-21/RHELx86/SABER_2020.03-2/bin
+CDS_AUTO_64BIT=ALL
+SYNOPSYS_SYSTYPE=LINUX.64
+SABER_DATA_PATH=.
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+ICV_HOME_DIR=/eda/synopsys/2020-21/RHELx86/ICV_2020.09-SP2
+VENDOR=unknown
+SNPS_ICC=/eda/synopsys/2020-21/RHELx86/ICC_2020.09-SP2
+SYNOPSYS_ESP_ROOT=/eda/synopsys/2020-21/RHELx86/ESP_2020.09-SP1
+ICV_RSH_COMMAND=ssh
+PERL_LOCAL_LIB_ROOT=/users/epebar/perl5
+LOGNAME=epebar
+MACHTYPE=x86_64
+SNPS_ICVWB=/eda/synopsys/2020-21/RHELx86/ICVWB_2020.09-SP1
+QTLIB=/usr/lib64/qt-3.3/lib
+SPYGLASS_HOME=/eda/synopsys/2020-21/RHELx86/SPYGLASS_2020.12/SPYGLASS_HOME
+CVS_RSH=ssh
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-MLF1HKQtIq,guid=c1eee6f10a28fba4afc535816310a8e6
+SNPS_CC=/eda/synopsys/2020-21/RHELx86/CUSTOM-COMP_2020.12
+SSH_CONNECTION=132.69.238.103 53289 132.68.59.60 22
+NOVASHLPPATH=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/doc
+SPS_RGB_PATH=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/etc/rgb
+MODULESHOME=/usr/share/Modules
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+SYNOPSYS_SYN_ROOT=/eda/synopsys/2020-21/RHELx86/SYN_2020.09-SP2
+CDPL_HOME=/eda/synopsys/2020-21/RHELx86/HSPICE_2020.12/hspice/cdpl
+SNPS_NT=/eda/synopsys/2020-21/RHELx86/NT_2020.09-SP2
+LD_NOVERSION=1
+XDG_RUNTIME_DIR=/run/user/4902
+PROFILEHOME=
+DISPLAY=:4
+STDB=/users/epebar/STDB
+QT_PLUGIN_PATH=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/platform/LINUXAMD64/lib/Qt/plugins
+VERDI3_NEW_INTERACTIVE_DEBUG=
+XDG_CURRENT_DESKTOP=GNOME
+STAR_RCXT_HOME_DIR=/eda/synopsys/2020-21/RHELx86/STARRC_2020.09-SP2
+PERL_MM_OPT=INSTALL_BASE=/users/epebar/perl5
+SNPS_VERDI=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12
+SNPS_TAURUS_TS4=/eda/synopsys/2020-21/RHELx86/TAURUS-TS4_2020.09
+PS_HWPC=OFF
+NOVAS_LC_ALL=C
+SIMV_DAIDIR_PATH=/users/epebar/Project/design/simv.daidir
+NOVAS_SIGNAL_BASE_EXTRACTION=1
+SIGNAL_BASE_EXTRACTION=1
+NOVAS_VERDI_SVTB_BETA=1
+VERDI_SVTB_BETA=1
+NOVAS_VERDI_SVTB_ALPHA=1
+VERDI_SVTB_ALPHA=1
+NOVAS_VERDI_TB_HT=1
+VERDI_TB_HT=1
+NOVAS_WAVE_REDRAW_ALLVC=1
+WAVE_REDRAW_ALLVC=1
+NOVAS_TCL_LIBRARY=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/etc/access/tcl86_library
+TCL_LIBRARY=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/etc/access/tcl86_library
+XKEYSYMDB=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/etc/access/XKeysymDB2.1
+NOVAS_SIGNAL_BASED_BA=0
+SIGNAL_BASED_BA=0
+SNPS_SIM_DEFAULT_GUI=verdi
+FSDB_FILE=/users/epebar/Project/design/inter.fsdb
+VCS_UCLI_STDIN_BLOCKING=1
+FSDB_VHDL_PROTECTED=1
+FSDB_RD_IR_ENABLE=1
+FSDB_SVA_STATUS=1
+SYNOPSYS_SIM=/eda/synopsys/2020-21/RHELx86/VCS_2020.12/vcs/R-2020.12
+DISABLE_LIBRARY_MAP_CHECK=1
+XLOCALEDIR=/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/etc/access/locale
+VCS_STOP_SAFE=1
+DVE_SIM_SELECT_LOOP=on
+FLEXLM_BORROWFILE=/users/epebar/.vlsi-ria60-borrow.txt
+Runtime command line arguments:
+argv[0]=/users/epebar/Project/design/simv
+argv[1]=-sml=verdi
+argv[2]=+UVM_VERDI_TRACE=UVM_AWARE
+argv[3]=+fsdb+gate=off
+argv[4]=-ucli2Proc
+argv[5]=-ucli
+argv[6]=-l
+argv[7]=/users/epebar/Project/design/verdiLog/sim.log
+351 profile - 100
+          CPU/Mem usage: 0.000 sys,  0.020 user,  264.91M mem
+352 Elapsed time:    0:00:00    Fri Sep  2 18:36:18 2022
+353 pliAppInit
+354 ndpGetenv(FSDB_FILE): /users/epebar/Project/design/inter.fsdb
+355 ndpGetenv(FSDB_SVA_STATUS): 1
+356 ndpGetenv(FSDB_VHDL_PROTECTED): 1
+357 [SC]Init: MemoryConsumed=0.00MB ElapsedTime=0hour 0min. 0sec.
+358 FSDB_GATE & FSDB_RTL is disabled.
+359 FSDB_FIELDTYPE is set.
+360 FSDB_ALIAS_ARRAY_ELEM is set to 4294967295.
+361 Enable Parallel Dumping.
+362 pliAppMiscSet: New Sim Round
+363 pliEntryInit
+364 LIBSSCORE=found /eda/synopsys/2020-21/RHELx86/VERDI_2020.12/share/PLI/lib/LINUXAMD64/libsscore_vcs202012.so through $NOVAS_HOME setting.
+365 FSDB Dumper for VCS, Release Verdi_R-2020.12, Linux x86_64/64bit, 11/19/2020
+366 (C) 1996 - 2020 by Synopsys, Inc.
+367 sps_tcl_fsdbDumpfile_main at 0
+368 argv[0]: /users/epebar/Project/design/inter.fsdb
+369 *Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+370 *Verdi* : Create FSDB file '/users/epebar/Project/design/inter.fsdb'
+371 [spi_vcs_vd_ppi_create_root]: no upf option
+372 FSDB dumper cannot dump UPF related power signal ($power_tree): no ppiPowerNetwork.
+373 compile option from '/users/epebar/Project/design/simv.daidir/vcs_rebuild'.
+374   "vcs '-kdb' '-debug_access+all' '-full64' 'test_tb' "-Xrebuild" "-makedepends=Makefile.Msimdepends""
+375   "gmake -f Makefile.Msimdepends"
+376   "vcs '-kdb' '-debug_access+all' '-full64' 'test_tb' 2>&1"
+377 sps_tcl_fsdbDumpflush_vd_main
+378 *Verdi* : Flush all FSDB Files at 0 s.
+379 DVDI_is_vir_unload_enabled is enable
+380 FSDB_VCS_ENABLE_NATIVE_VC is enable
+381 sps_tcl_fsdbDumpvars_vd_main
+382 argv[0]: 1
+383 argv[1]: test_tb
+384 argv[2]: +all
+385 argv[3]: +trace_process
+386 *Verdi* : Begin traversing the scope (test_tb), layer (1).
+387 *Verdi* : Enable +trace_process and +all dumping.
+388 *Verdi* : End of traversing.
+389 pliAppHDL_DumpVarComplete traverse var: profile - 
+          CPU/Mem usage: 0.010 sys,  0.030 user,  361.57M mem
+                   incr: 0.000 sys,  0.000 user,  3.39M mem
+                   accu: 0.000 sys,  0.000 user,  3.39M mem
+              accu incr: 0.000 sys,  0.000 user,  3.39M mem
+
+          Count usage: 9 var,  9 idcode,  9 callback
+                 incr: 9 var,  9 idcode,  9 callback
+                 accu: 9 var,  9 idcode,  9 callback
+            accu incr: 9 var,  9 idcode,  9 callback
+390 Elapsed time:    0:00:00    Fri Sep  2 18:36:18 2022
+391 pliAppHDL_DumpVarComplete: profile - 
+          CPU/Mem usage: 0.010 sys,  0.030 user,  362.63M mem
+                   incr: 0.000 sys,  0.000 user,  1.05M mem
+                   accu: 0.000 sys,  0.000 user,  4.44M mem
+              accu incr: 0.000 sys,  0.000 user,  1.05M mem
+
+          Count usage: 9 var,  9 idcode,  9 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 9 var,  9 idcode,  9 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+392 Elapsed time:    0:00:00    Fri Sep  2 18:36:18 2022
+393 sps_tcl_fsdbDumpflush_vd_main
+394 *Verdi* : Flush all FSDB Files at 0 s.
+395 sps_tcl_fsdbDumpflush_vd_main
+396 *Verdi* : Flush all FSDB Files at 0 s.
+397 sps_tcl_fsdbDumpflush_vd_main
+398 *Verdi* : Flush all FSDB Files at 0 s.
+399 sps_tcl_fsdbDumpflush_vd_main
+400 *Verdi* : Flush all FSDB Files at 50 s.

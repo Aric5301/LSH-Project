@@ -1,0 +1,1 @@
+/tools/synopsys1920/EuclidE/linux.gtk.x86_64/eclipse/euclide -workspace ./WS -project_location ./design -project_name RTL -root_cud ./design/RTL.cud
