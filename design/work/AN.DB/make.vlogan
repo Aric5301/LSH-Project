@@ -4,6 +4,8 @@ VLOGAN_OPT	= -kdb -sverilog -full64 -full64
 
 all :		_VCSgd_Q9y9m_1.db \
 	_VCSgd_wqWIDb_1.db \
+	_VCSgd_7jcthb_1.db \
+	_VCSgd_NqaNwe_1.db \
 
 
 
@@ -13,5 +15,13 @@ _VCSgd_Q9y9m_1.db :	test.sv
 
 _VCSgd_wqWIDb_1.db :	test_tb.sv 
 		${VLOGAN}  ${VLOGAN_OPT} test_tb.sv
+
+
+_VCSgd_7jcthb_1.db :	hash_table.sv 
+		${VLOGAN}  ${VLOGAN_OPT} hash_table.sv
+
+
+_VCSgd_NqaNwe_1.db :	hash_table_tb.sv 
+		${VLOGAN}  ${VLOGAN_OPT} hash_table_tb.sv
 
 
