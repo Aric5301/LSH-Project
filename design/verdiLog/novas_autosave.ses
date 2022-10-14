@@ -26,7 +26,7 @@ fdb_campaign =
 fdb_tool = 
 [hb]
 postSimFile = /users/epebar/Project/design/inter_1.fsdb
-syncTime = 10
+syncTime = 14
 viewport = 0 0 1920 977 0 0 301 1918
 activeNode = "hash_table_tb"
 activeScope = "hash_table_tb"
@@ -34,7 +34,7 @@ activeFile = "hash_table_tb.sv"
 interactiveMode = False
 viewType = Source
 simulatorMode = False
-sourceBeginLine = 34
+sourceBeginLine = 57
 baMode = False
 srcLineNum = True
 AutoWrap = True
@@ -52,7 +52,7 @@ leadingZero = False
 signalPane = False
 SourceVerticalScrollLines = 5
 Scope1 = "hash_table_tb"
-rangeSelection = 53 53 1 4 1 1
+rangeSelection = 74 74 1 4 1 1
 sdfCheckUndef = FALSE
 simFlow = FALSE
 [hb.design]
@@ -61,7 +61,7 @@ invokeDir = /users/epebar/Project/design
 [hb.sourceTab.1]
 scope = hash_table_tb
 File = /users/epebar/Project/design/hash_table_tb.sv
-Line = 35
+Line = 58
 [nMemoryManager]
 WaveformFile = /users/epebar/Project/design/inter_1.fsdb
 UserActionNum = 0

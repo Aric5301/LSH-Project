@@ -23,8 +23,8 @@ logic [31:0] tableLength [0:255]; // current length of each bucket, 256 is bucke
 hash_table U1 (.*);
 
 initial begin
-	$monitor ("@%g clk= %b reset= %b isInsert= %b isQuery= %b windowID= %d, theTable[0][0]= %d, tableLength[0] = %d",
-			$time,clk,reset,isInsert,isQuery,windowID,theTable[0][0],tableLength[0]);
+	$monitor ("@%g clk= %b reset= %b, isInsert= %b, isQuery= %b, windowID= %d, theTable[0][0]= %d, tableLength[0]= %d, tableLength[1]= %d, countBus[0]= %d, countBus[14]= %d",
+			$time,clk,reset,isInsert,isQuery, windowID, theTable[0][0], tableLength[0], tableLength[1], countBus[0], countBus[14]);
 	
 	
 	clk = 1'b0;
@@ -32,9 +32,24 @@ initial begin
 	isInsert = 1'b0;
 	isQuery = 1'b0;
 	windowID = 0;
-	for (int i = 0; i < 16; i = i + 1) begin
-		hashedSketch[i] = 8'd0;
-	end
+
+	hashedSketch[0] = 8'd0;
+	hashedSketch[1] = 8'd1;
+	hashedSketch[2] = 8'd2;
+	hashedSketch[3] = 8'd3;
+	hashedSketch[4] = 8'd4;
+	hashedSketch[5] = 8'd5;
+	hashedSketch[6] = 8'd6;
+	hashedSketch[7] = 8'd7;
+	hashedSketch[8] = 8'd8;
+	hashedSketch[9] = 8'd9;
+	hashedSketch[10] = 8'd10;
+	hashedSketch[11] = 8'd11;
+	hashedSketch[12] = 8'd12;
+	hashedSketch[13] = 8'd13;
+	hashedSketch[14] = 8'd14;
+	hashedSketch[15] = 8'd15;
+
 	#2;
 	
 	reset = 1'b1;
@@ -47,6 +62,12 @@ initial begin
 	#2;
 	windowID = 0;
 	isInsert = 1'b0;
+	clk = 1'b0;
+	#2;
+	isQuery = 1'b1;
+	clk = 1'b1;
+	#2;
+	isQuery = 1'b0;
 	clk = 1'b0;
 	#2;
 	
