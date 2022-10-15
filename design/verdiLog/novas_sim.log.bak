@@ -4,24 +4,31 @@ simv -sml=verdi +UVM_VERDI_TRACE=UVM_AWARE +fsdb+gate=off -ucli2Proc -ucli
 debImport "-i" "-simflow" "-dbdir" "simv.daidir"
 *Verdi* Loading libsscore_vcs202012.so
 
+FSDB Dumper for VCS, Release Verdi_R-2020.12, Linux x86_64/64bit, 11/19/2020
+(C) 1996 - 2020 by Synopsys, Inc.
+
+*Verdi* : Create FSDB file '/users/epebar/Project/design/inter.fsdb'
+
+*Verdi* : Flush all FSDB Files at 0 s.
+
 srcTBInvokeSim
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version R-2020.12_Full64; Runtime version R-2020.12_Full64;  Oct 12 15:25 2022
+Compiler version R-2020.12_Full64; Runtime version R-2020.12_Full64;  Oct 14 17:40 2022
 Verdi>run
-@0 clk= 0 reset= 0, isInsert= 0, isQuery= 0, windowID=          0, theTable[0][0]=          x, tableLength[0]=          x, tableLength[1]=          x, countBus[0]=          x, countBus[1]=          x
-@2 clk= 0 reset= 1, isInsert= 0, isQuery= 0, windowID=          0, theTable[0][0]=          0, tableLength[0]=          0, tableLength[1]=          0, countBus[0]=          0, countBus[1]=          0
-@4 clk= 0 reset= 0, isInsert= 0, isQuery= 0, windowID=          0, theTable[0][0]=          0, tableLength[0]=          0, tableLength[1]=          0, countBus[0]=          0, countBus[1]=          0
-@6 clk= 1 reset= 0, isInsert= 1, isQuery= 0, windowID=         14, theTable[0][0]=         14, tableLength[0]=          8, tableLength[1]=          8, countBus[0]=          0, countBus[1]=          0
-@8 clk= 0 reset= 0, isInsert= 0, isQuery= 0, windowID=          0, theTable[0][0]=         14, tableLength[0]=          8, tableLength[1]=          8, countBus[0]=          0, countBus[1]=          0
-@10 clk= 1 reset= 0, isInsert= 0, isQuery= 1, windowID=          0, theTable[0][0]=         14, tableLength[0]=          8, tableLength[1]=          8, countBus[0]=          0, countBus[1]=        128
-@12 clk= 0 reset= 0, isInsert= 0, isQuery= 0, windowID=          0, theTable[0][0]=         14, tableLength[0]=          8, tableLength[1]=          8, countBus[0]=          0, countBus[1]=        128
-$finish called from file "hash_table_tb.sv", line 62.
+@0 clk= 0 reset= 0, isInsert= 0, isQuery= 0, windowID=          0, theTable[0][0]=          x, tableLength[0]=          x, tableLength[1]=          x, countBus[0]=          x, countBus[14]=          x
+@2 clk= 0 reset= 1, isInsert= 0, isQuery= 0, windowID=          0, theTable[0][0]=          0, tableLength[0]=          0, tableLength[1]=          0, countBus[0]=          0, countBus[14]=          0
+@4 clk= 0 reset= 0, isInsert= 0, isQuery= 0, windowID=          0, theTable[0][0]=          0, tableLength[0]=          0, tableLength[1]=          0, countBus[0]=          0, countBus[14]=          0
+@6 clk= 1 reset= 0, isInsert= 1, isQuery= 0, windowID=         14, theTable[0][0]=         14, tableLength[0]=         16, tableLength[1]=          0, countBus[0]=          0, countBus[14]=          0
+@8 clk= 0 reset= 0, isInsert= 0, isQuery= 0, windowID=          0, theTable[0][0]=         14, tableLength[0]=         16, tableLength[1]=          0, countBus[0]=          0, countBus[14]=          0
+@10 clk= 1 reset= 0, isInsert= 0, isQuery= 1, windowID=          0, theTable[0][0]=         14, tableLength[0]=         16, tableLength[1]=          0, countBus[0]=          0, countBus[14]=         16
+@12 clk= 0 reset= 0, isInsert= 0, isQuery= 0, windowID=          0, theTable[0][0]=         14, tableLength[0]=         16, tableLength[1]=          0, countBus[0]=          0, countBus[14]=         16
+$finish called from file "hash_table_tb.sv", line 74.
 $finish at simulation time                   14
 Simulation complete, time is 14.
-hash_table_tb.sv, 62 : 	$finish;
+hash_table_tb.sv, 74 : 	$finish;
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 14
-CPU Time:      0.050 seconds;       Data structure size:   0.1Mb
-Wed Oct 12 16:52:26 2022
+CPU Time:      0.070 seconds;       Data structure size:   0.1Mb
+Sat Oct 15 14:08:18 2022
 debExit

@@ -1,0 +1,11 @@
+/*------------------------------------------------------------------------------
+ * File          : input_handler.sv
+ * Project       : RTL
+ * Author        : epebar
+ * Creation date : Oct 15, 2022
+ * Description   :
+ *------------------------------------------------------------------------------*/
+
+module input_handler #() ();
+
+endmodule

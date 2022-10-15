@@ -25,7 +25,7 @@ fdb_proj =
 fdb_campaign = 
 fdb_tool = 
 [hb]
-postSimFile = /users/epebar/Project/design/inter_1.fsdb
+postSimFile = /users/epebar/Project/design/inter.fsdb
 syncTime = 14
 viewport = 0 0 1920 977 0 0 301 1918
 activeNode = "hash_table_tb"
@@ -63,6 +63,6 @@ scope = hash_table_tb
 File = /users/epebar/Project/design/hash_table_tb.sv
 Line = 58
 [nMemoryManager]
-WaveformFile = /users/epebar/Project/design/inter_1.fsdb
+WaveformFile = /users/epebar/Project/design/inter.fsdb
 UserActionNum = 0
 nMemWindowNum = 0
