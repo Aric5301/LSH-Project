@@ -2,6 +2,10 @@ Invoking simulator...
 
 simv -sml=verdi +UVM_VERDI_TRACE=UVM_AWARE +fsdb+gate=off -ucli2Proc -ucli
 debImport "-i" "-simflow" "-dbdir" "simv.daidir"
+Chronologic VCS simulator copyright 1991-2020
+Contains Synopsys proprietary information.
+Compiler version R-2020.12_Full64; Runtime version R-2020.12_Full64;  Nov 29 17:26 2022
+
 *Verdi* Loading libsscore_vcs202012.so
 
 FSDB Dumper for VCS, Release Verdi_R-2020.12, Linux x86_64/64bit, 11/19/2020
@@ -11,21 +15,20 @@ FSDB Dumper for VCS, Release Verdi_R-2020.12, Linux x86_64/64bit, 11/19/2020
 
 *Verdi* : Flush all FSDB Files at 0 s.
 
+*Verdi* : Enable RPC Server(993)
+
 srcTBInvokeSim
-Chronologic VCS simulator copyright 1991-2020
-Contains Synopsys proprietary information.
-Compiler version R-2020.12_Full64; Runtime version R-2020.12_Full64;  Oct 18 10:11 2022
+Verdi>fsdbDumpvars 1 "window_hasher_tb.U1"  +all +trace_process;fsdbDumpflush 
+
+*Verdi* : Begin traversing the scope (window_hasher_tb.U1), layer (1).
+*Verdi* : Enable +trace_process and +all dumping.
+*Verdi* : End of traversing.
+*Verdi* : Flush all FSDB Files at 0 s.
+
 Verdi>run
-Line : AGTGAGAGTTACATGTTCGTTGGGCTCTTCCGACACGAACGTTGGCCTACATCCTACCTGAGGTCTGTGCCCTGTCGTGAGAAGTGCGCATTTCGTTCTTGCAGCTCGTCAGTACTTGCAGAAGC
-
-Line : 
-
-
-window[0] = x, window[1] = x, window[7] = x, window[124]= x
-Simulation complete, time is 0.
-input_handler.sv, 9 : module input_handler #(
+window_hasher_tb.sv, 9 : module window_hasher_tb #(
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 0
-CPU Time:      0.060 seconds;       Data structure size:   0.0Mb
-Tue Oct 18 10:12:31 2022
+Time: 113926098
+CPU Time:      7.010 seconds;       Data structure size:   0.1Mb
+Tue Nov 29 18:03:18 2022
 debExit
