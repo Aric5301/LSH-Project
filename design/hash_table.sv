@@ -28,8 +28,8 @@ module	hash_table #(
 );
 
 // local parameters
-//logic [31:0] theTable     [0:NUM_OF_BUCKETS-1][0:BUCKET_SIZE-1], // NUM_OF_BUCKETS buckets of BUCKET_SIZE size
-//logic [31:0] tableLength  [0:NUM_OF_BUCKETS-1]        // current length of each bucket
+//logic [31:0] theTable     [0:NUM_OF_BUCKETS-1][0:BUCKET_SIZE-1]; // NUM_OF_BUCKETS buckets of BUCKET_SIZE size
+//logic [31:0] tableLength  [0:NUM_OF_BUCKETS-1];        // current length of each bucket
 logic wasBucketQueried [0:255];
 //////////--------------------------------------------------------------------------------------------------------------=
 

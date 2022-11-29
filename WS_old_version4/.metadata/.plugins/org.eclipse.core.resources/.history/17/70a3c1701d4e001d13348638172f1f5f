@@ -1,0 +1,20 @@
+/*------------------------------------------------------------------------------
+ * File          : input_handler.sv
+ * Project       : RTL
+ * Author        : epebar
+ * Creation date : Oct 15, 2022
+ * Description   :
+ *------------------------------------------------------------------------------*/
+
+module input_handler_tb ();
+integer fd;
+reg[1000:1] str;
+
+
+	while (! $feof(fd)) begin
+		$fgets(str, fd);
+		$display("%0s", str);
+	end
+	$fclose(fd);
+end
+endmodule

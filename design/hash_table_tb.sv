@@ -6,19 +6,25 @@
  * Description   :
  *------------------------------------------------------------------------------*/
 
-module hash_table_tb #() ();
+module hash_table_tb #(
+	parameter SKETCH_SIZE         =16,
+	          NUM_OF_BUCKETS      =256,
+	          LOG2_NUM_OF_BUCKETS =8,
+	          BUCKET_SIZE         =16
+) ();
 
-logic     clk;
-logic     reset;
-logic     isInsert;
-logic     isQuery;
-logic  [31:0] windowID;
-logic  [7:0]  hashedSketch [0:15];  // 15:0 should be [s-1:0] for const s, [7:0] should be [log2(BUCKETS_SIZE)-1:0]
+logic clk;
+logic reset;
+logic isInsert;
+logic isQuery;
+logic [31:0] windowID;
+logic [LOG2_NUM_OF_BUCKETS-1:0] hashedSketch [0:SKETCH_SIZE-1]; // vector of SKETCH_SIZE size with each value representing the value of the K-mer after h2 is applied on it
 
-logic [31:0] countBus     [0:1023]; // currently supports up to 1024 windows
+logic [31:0] countBus [0:1023]; // currently supports up to 1024 windows
 
-logic [31:0] theTable [0:255][0:15]; // Currently place for up to 16 eyvarim in one bucket, 256 is buckets size
-logic [31:0] tableLength [0:255]; // current length of each bucket, 256 is buckets size
+// local parameters, temp as output
+logic [31:0] theTable [0:NUM_OF_BUCKETS-1][0:BUCKET_SIZE-1]; // NUM_OF_BUCKETS buckets of BUCKET_SIZE size
+logic [31:0] tableLength [0:NUM_OF_BUCKETS-1]; // current length of each bucket
 
 hash_table U1 (.*);
 

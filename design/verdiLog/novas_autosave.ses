@@ -26,15 +26,15 @@ fdb_campaign =
 fdb_tool = 
 [hb]
 postSimFile = /users/epebar/Project/design/inter.fsdb
-syncTime = 14
-viewport = 0 0 1920 977 0 0 301 1918
-activeNode = "hash_table_tb"
-activeScope = "hash_table_tb"
-activeFile = "hash_table_tb.sv"
+syncTime = 0
+viewport = 0 20 1920 977 0 0 301 1918
+activeNode = "input_handler"
+activeScope = "input_handler"
+activeFile = "input_handler.sv"
 interactiveMode = False
 viewType = Source
 simulatorMode = False
-sourceBeginLine = 57
+sourceBeginLine = 19
 baMode = False
 srcLineNum = True
 AutoWrap = True
@@ -51,17 +51,16 @@ DnDtraceCrossHierOnly = True
 leadingZero = False
 signalPane = False
 SourceVerticalScrollLines = 5
-Scope1 = "hash_table_tb"
-rangeSelection = 74 74 1 4 1 1
+Scope1 = "input_handler"
 sdfCheckUndef = FALSE
 simFlow = FALSE
 [hb.design]
 importCmd = "-simflow" "-dbdir" "simv.daidir" 
 invokeDir = /users/epebar/Project/design
 [hb.sourceTab.1]
-scope = hash_table_tb
-File = /users/epebar/Project/design/hash_table_tb.sv
-Line = 58
+scope = input_handler
+File = /users/epebar/Project/design/input_handler.sv
+Line = 20
 [nMemoryManager]
 WaveformFile = /users/epebar/Project/design/inter.fsdb
 UserActionNum = 0
