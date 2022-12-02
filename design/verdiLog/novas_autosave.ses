@@ -26,7 +26,7 @@ fdb_campaign =
 fdb_tool = 
 [hb]
 postSimFile = /users/epebar/Project/design/inter.fsdb
-syncTime = 7302
+syncTime = 7238
 viewport = 0 27 1920 977 0 0 301 1918
 activeNode = "window_hasher_tb"
 activeScope = "window_hasher_tb"
@@ -34,7 +34,7 @@ activeFile = "window_hasher_tb.sv"
 interactiveMode = False
 viewType = Source
 simulatorMode = False
-sourceBeginLine = 25
+sourceBeginLine = 32
 baMode = False
 srcLineNum = True
 AutoWrap = True
@@ -52,7 +52,8 @@ leadingZero = False
 signalPane = False
 SourceVerticalScrollLines = 5
 Scope1 = "window_hasher_tb"
-rangeSelection = 42 42 1 4 1 1
+Scope2 = "window_hasher_tb.U1"
+rangeSelection = 50 50 1 4 1 1
 sdfCheckUndef = FALSE
 simFlow = FALSE
 [hb.design]
@@ -61,7 +62,7 @@ invokeDir = /users/epebar/Project/design
 [hb.sourceTab.1]
 scope = window_hasher_tb
 File = /users/epebar/Project/design/window_hasher_tb.sv
-Line = 26
+Line = 33
 [nMemoryManager]
 WaveformFile = /users/epebar/Project/design/inter.fsdb
 UserActionNum = 0
