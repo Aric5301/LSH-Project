@@ -4,7 +4,7 @@ simv -sml=verdi +UVM_VERDI_TRACE=UVM_AWARE +fsdb+gate=off -ucli2Proc -ucli
 debImport "-i" "-simflow" "-dbdir" "simv.daidir"
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version R-2020.12_Full64; Runtime version R-2020.12_Full64;  Nov 29 17:26 2022
+Compiler version R-2020.12_Full64; Runtime version R-2020.12_Full64;  Nov 29 18:04 2022
 
 *Verdi* Loading libsscore_vcs202012.so
 
@@ -15,7 +15,7 @@ FSDB Dumper for VCS, Release Verdi_R-2020.12, Linux x86_64/64bit, 11/19/2020
 
 *Verdi* : Flush all FSDB Files at 0 s.
 
-*Verdi* : Enable RPC Server(993)
+*Verdi* : Enable RPC Server(6206)
 
 srcTBInvokeSim
 Verdi>fsdbDumpvars 1 "window_hasher_tb.U1"  +all +trace_process;fsdbDumpflush 
@@ -26,9 +26,12 @@ Verdi>fsdbDumpvars 1 "window_hasher_tb.U1"  +all +trace_process;fsdbDumpflush
 *Verdi* : Flush all FSDB Files at 0 s.
 
 Verdi>run
-window_hasher_tb.sv, 9 : module window_hasher_tb #(
+$finish called from file "window_hasher_tb.sv", line 42.
+$finish at simulation time                 7302
+Simulation complete, time is 7302.
+window_hasher_tb.sv, 42 : 	$finish;
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 113926098
-CPU Time:      7.010 seconds;       Data structure size:   0.1Mb
-Tue Nov 29 18:03:18 2022
+Time: 7302
+CPU Time:      0.070 seconds;       Data structure size:   0.1Mb
+Tue Nov 29 18:10:03 2022
 debExit

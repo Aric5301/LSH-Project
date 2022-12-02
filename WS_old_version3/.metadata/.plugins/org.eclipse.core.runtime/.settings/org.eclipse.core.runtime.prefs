@@ -1,5 +1,0 @@
-content-types/veride.content.CompilationUnitDefinition/file-extensions=cud,f,list,lib,lst,vlist,vfile,flist,filelist,incdirlist,xf
-content-types/veride.content.PortableStimulusDomainSpecificSource/file-extensions=pss
-content-types/veride.content.VhdlSource/file-extensions=vhd,vhdl
-content-types/veride.content.verilogSource/file-extensions=v,va,vams,verilog,vi,vih,vihp,vh,vp,vs,vx,vg,vlib,sv,svi,svip,svlp,svh,svp,svx,sva,svlib,h,hp,map,inc,pkg,gv
-eclipse.preferences.version=1

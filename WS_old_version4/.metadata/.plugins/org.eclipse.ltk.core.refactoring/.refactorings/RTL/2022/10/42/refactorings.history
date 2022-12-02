@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;RTL/hasher.sv&apos; to &apos;window_hasher.sv&apos;" description="Rename resource &apos;hasher.sv&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="hasher.sv" name="window_hasher.sv" stamp="1665833881125" updateReferences="true"/>
-</session>

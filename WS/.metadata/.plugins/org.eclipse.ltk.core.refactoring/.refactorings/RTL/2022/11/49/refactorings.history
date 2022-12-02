@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;RTL/new_window_hasher.sv&apos; to &apos;window_hasher.sv&apos;" description="Rename resource &apos;new_window_hasher.sv&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="new_window_hasher.sv" name="window_hasher.sv" stamp="1669733935231" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;RTL/window_hasher.sv&apos; to &apos;new_window_hasher.sv&apos;" description="Rename resource &apos;window_hasher.sv&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="window_hasher.sv" name="new_window_hasher.sv" stamp="1669733969481" updateReferences="true"/>
-</session>
