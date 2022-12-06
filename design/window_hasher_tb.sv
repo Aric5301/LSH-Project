@@ -50,7 +50,7 @@ initial begin
 	$finish;
 end
 
-always #2 clk=~clk; //now you create your cyclic clock
+always #1 clk=~clk; //now you create your cyclic clock
 
 
 endmodule

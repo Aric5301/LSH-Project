@@ -2,13 +2,13 @@ Invoking simulator...
 
 simv -sml=verdi +UVM_VERDI_TRACE=UVM_AWARE +fsdb+gate=off -ucli2Proc -ucli
 debImport "-i" "-simflow" "-dbdir" "simv.daidir"
-Warning : License for product VCSRuntime_Net(725) will expire within 30 days, on: 31-dec-2022.
+Warning : License for product VCSRuntime_Net(725) will expire within 29 days, on: 31-dec-2022.
 If you would like to temporarily disable this message, set 
  the VCS_LIC_EXPIRE_WARNING environment variable to the number of days
 before expiration that you want this message to start (the minimum is 0).
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version R-2020.12_Full64; Runtime version R-2020.12_Full64;  Dec  2 19:11 2022
+Compiler version R-2020.12_Full64; Runtime version R-2020.12_Full64;  Dec  3 23:34 2022
 
 *Verdi* Loading libsscore_vcs202012.so
 
@@ -19,23 +19,28 @@ FSDB Dumper for VCS, Release Verdi_R-2020.12, Linux x86_64/64bit, 11/19/2020
 
 *Verdi* : Flush all FSDB Files at 0 s.
 
-*Verdi* : Enable RPC Server(6343)
+*Verdi* : Enable RPC Server(26908)
 
 srcTBInvokeSim
-Verdi>fsdbDumpvars 1 "window_hasher_tb.U1"  +all +trace_process;fsdbDumpflush 
-
-*Verdi* : Begin traversing the scope (window_hasher_tb.U1), layer (1).
-*Verdi* : Enable +trace_process and +all dumping.
-*Verdi* : End of traversing.
-*Verdi* : Flush all FSDB Files at 0 s.
-
 Verdi>run
-$finish called from file "window_hasher_tb.sv", line 50.
-$finish at simulation time                 7238
-Simulation complete, time is 7238.
-window_hasher_tb.sv, 50 : 	$finish;
+    71
+2
+    10
+2
+    84
+3
+    84
+3
+    71
+2
+    67
+1
+    84
+3
+Simulation complete, time is 14.
+input_handler.sv, 9 : module input_handler #(
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 7238
-CPU Time:      0.300 seconds;       Data structure size:   0.1Mb
-Fri Dec  2 19:29:49 2022
+Time: 14
+CPU Time:      0.040 seconds;       Data structure size:   0.0Mb
+Sat Dec  3 23:35:32 2022
 debExit

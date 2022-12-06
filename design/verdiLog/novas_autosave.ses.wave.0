@@ -2,7 +2,7 @@ Magic 271485
 Revision Verdi_R-2020.12
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 25 1920 793 313 123
+viewPort 0 25 1272 369 313 123
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
@@ -16,8 +16,8 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 5525.876368 7310.380000
-cursor 7238.000000
+zoom 0.000000 8.080000
+cursor 8.000000
 marker 0.000000
 
 ; user define markers
@@ -25,7 +25,7 @@ marker 0.000000
 ; visible top row signal index
 top 0
 ; marker line index
-markerPos 6
+markerPos 1
 
 ; event list
 ; addEvent event_name event_expression
@@ -45,14 +45,9 @@ COMPLEX_EVENT_END
 curSTATUS ByChange
 
 
-addGroup "U1"
+addGroup "G1"
 activeDirFile "" "/users/epebar/Project/design/inter.fsdb"
-addSignal -h 15 /window_hasher_tb/U1/clk
-addSignal -h 15 /window_hasher_tb/U1/reset
-addSignal -h 15 /window_hasher_tb/U1/ready_for_hashing
-addSignal -h 15 -UNSIGNED -HEX /window_hasher_tb/U1/window[0:127]
-addSignal -h 15 -UNSIGNED -HEX /window_hasher_tb/U1/hashedSketch[0:15]
-addSignal -h 15 /window_hasher_tb/U1/hashing_is_done
+addSignal -h 15 -UNSIGNED -HEX /input_handler/window[0:127]
 addGroup "G2"
 
 ; getSignalForm Scope Hierarchy Status

@@ -1,0 +1,70 @@
+/*------------------------------------------------------------------------------
+ * File          : hash_table.sv
+ * Project       : RTL
+ * Author        : epebar
+ * Creation date : Sep 20, 2022
+ * Description   :
+ *------------------------------------------------------------------------------*/
+
+module	hash_table #(
+	parameter SKETCH_SIZE         =16,
+	          NUM_OF_BUCKETS      =256,
+	          LOG2_NUM_OF_BUCKETS =8,
+	          BUCKET_SIZE         =16,
+			  MAX_WINDOWS_IN_REFERENCE = 1024
+) (
+	input logic                            clk,
+	input logic                            reset_hash_table,
+	input logic                            isInsert,
+	input logic                            isQuery,
+	input logic  [31:0]                    windowID,
+	input logic  [LOG2_NUM_OF_BUCKETS-1:0] hashed_sketch [0:SKETCH_SIZE-1],                     // vector of SKETCH_SIZE size with each value representing the value of the K-mer after h2 is applied on it
+	
+	output logic [31:0]                    countBus      [0:MAX_WINDOWS_IN_REFERENCE-1],                              // currently supports up to 1024 windows
+	
+	// local parameters, temp as output
+	output logic [31:0]                    theTable      [0:NUM_OF_BUCKETS-1][0:BUCKET_SIZE-1], // NUM_OF_BUCKETS buckets of BUCKET_SIZE size
+	output logic [31:0]                    tableLength   [0:NUM_OF_BUCKETS-1]                   // current length of each bucket
+);
+
+// local parameters
+//logic [31:0] theTable     [0:NUM_OF_BUCKETS-1][0:BUCKET_SIZE-1]; // NUM_OF_BUCKETS buckets of BUCKET_SIZE size
+//logic [31:0] tableLength  [0:NUM_OF_BUCKETS-1];        // current length of each bucket
+logic wasBucketQueried [0:255];
+//////////--------------------------------------------------------------------------------------------------------------=
+
+always @(posedge clk or posedge reset_hash_table) begin
+	if (reset_hash_table) begin
+		
+		tableLength = '{default: '0};
+		theTable = '{default: '0};
+		countBus = '{default: '0};
+		wasBucketQueried = '{default: '0};
+	end
+	
+	else begin
+		
+		if (isInsert) begin
+			for (int i = 0; i < SKETCH_SIZE; i = i + 1) begin
+				theTable[hashed_sketch[i]][tableLength[hashed_sketch[i]]] = windowID;
+				tableLength[hashed_sketch[i]] = tableLength[hashed_sketch[i]] + 1;
+			end
+		end else if (isQuery) begin
+			wasBucketQueried = '{default: '0};
+			countBus = '{default: '0};
+			
+			for (int i = 0; i < SKETCH_SIZE; i = i + 1) begin
+				
+				for (int j = 0; j < BUCKET_SIZE; j = j + 1) begin
+					if (j < tableLength[hashed_sketch[i]] && wasBucketQueried[hashed_sketch[i]] == 1'b0) begin
+						countBus[theTable[hashed_sketch[i]][j]] = countBus[theTable[hashed_sketch[i]][j]] + 1;
+					end
+				end
+				wasBucketQueried[hashed_sketch[i]] = 1'b1;
+			end
+		end
+	end
+end
+
+//////////--------------------------------------------------------------------------------------------------------------=
+endmodule
