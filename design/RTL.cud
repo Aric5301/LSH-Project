@@ -1,12 +1,10 @@
 
-test.sv
-test_tb.sv
-hash_table.sv
-hash_table_tb.sv
-input_handler.sv
-hasher.sv
-hasher.sv
-hasher_tb.sv
-input_handler_tb.sv
-window_hasher_tb.sv
-window_hasher.sv
+work/hash_table.sv
+work/hash_table_tb.sv
+work/main.sv
+work/hasher.sv
+work/hasher_tb.sv
+work/window_hasher.sv
+work/window_hasher_tb.sv
+work/stats.sv
+work/stats_tb.sv

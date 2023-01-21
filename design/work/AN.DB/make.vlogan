@@ -2,11 +2,16 @@
 VLOGAN	= vlogan
 VLOGAN_OPT	= -kdb -sverilog -full64 -full64
 
-all :		_VCSgd_zNQold_1.db \
+all :		_VCSgd_whcQde_1.db \
+	_VCSgd_P4J0xc_1.db \
 
 
 
-_VCSgd_zNQold_1.db :	input_handler.sv 
-		${VLOGAN}  ${VLOGAN_OPT} input_handler.sv
+_VCSgd_whcQde_1.db :	work/hasher.sv 
+		${VLOGAN}  ${VLOGAN_OPT} work/hasher.sv
+
+
+_VCSgd_P4J0xc_1.db :	work/hasher_tb.sv 
+		${VLOGAN}  ${VLOGAN_OPT} work/hasher_tb.sv
 
 

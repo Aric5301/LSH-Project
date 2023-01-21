@@ -1,0 +1,10 @@
+
+work/hash_table.sv
+work/hash_table_tb.sv
+main.sv
+hasher.sv
+hasher_tb.sv
+window_hasher.sv
+window_hasher_tb.sv
+stats.sv
+stats_tb.sv

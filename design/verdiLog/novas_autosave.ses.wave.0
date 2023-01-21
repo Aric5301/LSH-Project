@@ -2,7 +2,7 @@ Magic 271485
 Revision Verdi_R-2020.12
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 25 1272 369 313 123
+viewPort 0 25 1920 820 181 407
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
@@ -16,8 +16,8 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 0.000000 8.080000
-cursor 8.000000
+zoom 0.000000 3.060676
+cursor 4.000000
 marker 0.000000
 
 ; user define markers
@@ -25,7 +25,7 @@ marker 0.000000
 ; visible top row signal index
 top 0
 ; marker line index
-markerPos 1
+markerPos 11
 
 ; event list
 ; addEvent event_name event_expression
@@ -47,7 +47,17 @@ curSTATUS ByChange
 
 addGroup "G1"
 activeDirFile "" "/users/epebar/Project/design/inter.fsdb"
-addSignal -h 15 -UNSIGNED -HEX /input_handler/window[0:127]
+addSignal -h 15 -UNSIGNED -HEX /hasher_tb/kmer[0:15]
+addSignal -h 15 -UNSIGNED -HEX /hasher_tb/h1[31:0]
+addSignal -expanded -h 15 -UNSIGNED -HEX /hasher_tb/h2[7:0]
+addSignal -h 15 /hasher_tb/h2[7]
+addSignal -h 15 /hasher_tb/h2[6]
+addSignal -h 15 /hasher_tb/h2[5]
+addSignal -h 15 /hasher_tb/h2[4]
+addSignal -h 15 /hasher_tb/h2[3]
+addSignal -h 15 /hasher_tb/h2[2]
+addSignal -h 15 /hasher_tb/h2[1]
+addSignal -h 15 /hasher_tb/h2[0]
 addGroup "G2"
 
 ; getSignalForm Scope Hierarchy Status
