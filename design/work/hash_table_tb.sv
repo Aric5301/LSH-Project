@@ -9,8 +9,8 @@
 module hash_table_tb #(
 	parameter SKETCH_SIZE         =16,
 	          NUM_OF_BUCKETS      =256,
-	          LOG2_NUM_OF_BUCKETS =8,
-	          BUCKET_SIZE         =16
+	          BUCKET_SIZE         =16,
+			  MAX_WINDOWS_IN_REFERENCE = 512
 ) ();
 
 logic clk;
@@ -18,9 +18,9 @@ logic reset_hash_table;
 logic is_insert;
 logic is_query;
 logic [31:0] window_id;
-logic [LOG2_NUM_OF_BUCKETS-1:0] hashed_sketch [0:SKETCH_SIZE-1]; // vector of SKETCH_SIZE size with each value representing the value of the K-mer after h2 is applied on it
+logic [$clog2(NUM_OF_BUCKETS)-1:0] hashed_sketch [0:SKETCH_SIZE-1]; // vector of SKETCH_SIZE size with each value representing the value of the K-mer after h2 is applied on it
 
-logic [31:0] count_bus [0:1023]; // currently supports up to 1024 windows
+logic [31:0] count_bus [0:MAX_WINDOWS_IN_REFERENCE-1]; // currently supports up to 1024 windows
 
 // local parameters, temp as output
 logic [31:0] theTable [0:NUM_OF_BUCKETS-1][0:BUCKET_SIZE-1]; // NUM_OF_BUCKETS buckets of BUCKET_SIZE size

@@ -1,0 +1,86 @@
+/*------------------------------------------------------------------------------
+ * File          : stats.sv
+ * Project       : RTL
+ * Author        : epebar
+ * Creation date : Jan 2, 2023
+ * Description   :
+ *------------------------------------------------------------------------------*/
+
+module	stats #(
+	parameter MAX_WINDOWS_IN_REFERENCE = 512,
+				BUCKET_SIZE              =16,
+			  WINDOWS_PER_QUERY = 1, // In the future this might change
+			  MAX_WINDOWS_IN_READ = 16
+) (
+	input logic                            clk,
+	input logic                            reset_stats,
+	input logic                            is_query,
+	input logic [31:0]                    count_bus    [0:MAX_WINDOWS_IN_REFERENCE-1], // currently supports up to 1024 windows
+	input logic                    calculate_matched_window,
+	
+	output logic [31:0] matched_window_id
+);
+
+logic previous_is_query;
+logic [31:0]                    my_count_bus    [0:MAX_WINDOWS_IN_REFERENCE-1]; // currently supports up to 1024 windows
+logic [31:0] number_of_windows;
+logic [31:0]                    cont_counter    [0:MAX_WINDOWS_IN_REFERENCE-1]; // currently supports up to 1024 windows
+logic [31:0] current_biggest;
+
+
+always @(posedge reset_stats or posedge clk) begin
+	
+	if (reset_stats) begin
+		
+		previous_is_query = 1'b0;
+		my_count_bus = '{default: '0};
+		number_of_windows = 32'b0;
+		cont_counter = '{default: '0};
+		current_biggest = 32'b0;
+		
+		matched_window_id = -1;
+	end
+	
+	else begin
+	
+		if (calculate_matched_window == 1'b1) begin
+		
+			for (int j = 0; j < MAX_WINDOWS_IN_REFERENCE; j = j + 1) begin
+					
+				if (j <= MAX_WINDOWS_IN_REFERENCE - (number_of_windows + 2)) begin
+					
+					for (int i = 0; i <= MAX_WINDOWS_IN_READ + 2; i = i + 1) begin
+						
+						if (i <= number_of_windows + 2) begin
+							
+							cont_counter[j] = cont_counter[j] + my_count_bus[j + i];
+						end
+					end
+					
+					if (cont_counter[j] > 5 && cont_counter[j] > current_biggest) begin
+						
+						current_biggest = cont_counter[j];
+						matched_window_id = j;
+					end
+				end
+				
+				else begin
+				
+				
+				end
+			end
+		end
+		
+		if (is_query == 1'b0 && previous_is_query == 1'b1) begin // detect is_query release
+		
+			number_of_windows = number_of_windows + 1;
+
+			for (int i = 0; i < MAX_WINDOWS_IN_REFERENCE; i++) begin
+				my_count_bus[i] = my_count_bus[i] + count_bus[i];
+			end
+		end
+		
+		previous_is_query = is_query;
+	end
+end
+endmodule

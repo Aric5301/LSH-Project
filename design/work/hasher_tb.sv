@@ -7,13 +7,13 @@
  *------------------------------------------------------------------------------*/
 
 module hasher_tb #( parameter
-	NUM_OF_BUCKETS=256, LOG2_NUM_OF_BUCKETS=8, KMER_SIZE=16) ();
+	NUM_OF_BUCKETS=256, KMER_SIZE=16) ();
 
 logic [1:0] kmer [0:KMER_SIZE-1];
 
 
 logic [31:0] h1;
-logic [LOG2_NUM_OF_BUCKETS-1:0] h2;
+logic [$clog2(NUM_OF_BUCKETS)-1:0] h2;
 
 hasher U1 (.*);
 
@@ -58,7 +58,7 @@ initial begin
 	kmer[15] = 2'b10;
 	
 	#2
-	
-	$finish;
+			
+			$finish;
 end
 endmodule

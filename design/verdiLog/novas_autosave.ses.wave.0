@@ -2,7 +2,7 @@ Magic 271485
 Revision Verdi_R-2020.12
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 25 1920 820 181 407
+viewPort 0 25 1920 820 247 97
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
@@ -16,8 +16,8 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 0.000000 3.060676
-cursor 4.000000
+zoom 0.000000 15.150000
+cursor 15.000000
 marker 0.000000
 
 ; user define markers
@@ -47,17 +47,17 @@ curSTATUS ByChange
 
 addGroup "G1"
 activeDirFile "" "/users/epebar/Project/design/inter.fsdb"
-addSignal -h 15 -UNSIGNED -HEX /hasher_tb/kmer[0:15]
-addSignal -h 15 -UNSIGNED -HEX /hasher_tb/h1[31:0]
-addSignal -expanded -h 15 -UNSIGNED -HEX /hasher_tb/h2[7:0]
-addSignal -h 15 /hasher_tb/h2[7]
-addSignal -h 15 /hasher_tb/h2[6]
-addSignal -h 15 /hasher_tb/h2[5]
-addSignal -h 15 /hasher_tb/h2[4]
-addSignal -h 15 /hasher_tb/h2[3]
-addSignal -h 15 /hasher_tb/h2[2]
-addSignal -h 15 /hasher_tb/h2[1]
-addSignal -h 15 /hasher_tb/h2[0]
+addSignal -h 15 /stats_tb/U1/clk
+addSignal -h 15 /stats_tb/U1/reset_stats
+addSignal -h 15 /stats_tb/U1/is_query
+addSignal -h 15 -UNSIGNED -HEX /stats_tb/U1/count_bus[0:511]
+addSignal -h 15 /stats_tb/U1/calculate_matched_window
+addSignal -h 15 -UNSIGNED -HEX /stats_tb/U1/matched_window_id[31:0]
+addSignal -h 15 /stats_tb/U1/previous_is_query
+addSignal -h 15 -UNSIGNED -HEX /stats_tb/U1/my_count_bus[0:511]
+addSignal -h 15 -UNSIGNED -HEX /stats_tb/U1/number_of_windows[31:0]
+addSignal -h 15 -UNSIGNED -HEX /stats_tb/U1/cont_counter[0:511]
+addSignal -h 15 -UNSIGNED -HEX /stats_tb/U1/current_biggest[31:0]
 addGroup "G2"
 
 ; getSignalForm Scope Hierarchy Status

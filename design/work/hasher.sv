@@ -7,12 +7,12 @@
  *------------------------------------------------------------------------------*/
 
 module hasher #( parameter
-	NUM_OF_BUCKETS      =256, LOG2_NUM_OF_BUCKETS =8, KMER_SIZE           =16) (
+	NUM_OF_BUCKETS      =256, KMER_SIZE           =16) (
 		
 		input logic  [1:0]                     kmer [0:KMER_SIZE-1],
 		
 		output logic [31:0]                    h1,
-		output logic [LOG2_NUM_OF_BUCKETS-1:0] h2
+		output logic [$clog2(NUM_OF_BUCKETS)-1:0] h2
 	);
 
 localparam [31:0] SEED = 32'h8f83adef; // Completely arbitrary, at least for now
@@ -20,7 +20,7 @@ localparam [31:0] SEED = 32'h8f83adef; // Completely arbitrary, at least for now
 logic [31:0] chunk;
 
 assign h1 = murmurblock(SEED, chunk);
-assign h2 = h1[LOG2_NUM_OF_BUCKETS-1:0];
+assign h2 = h1[$clog2(NUM_OF_BUCKETS)-1:0];
 assign chunk = {kmer[0], kmer[1], kmer[2], kmer[3], kmer[4], kmer[5], kmer[6], kmer[7],
 		kmer[8], kmer[9], kmer[10], kmer[11], kmer[12], kmer[13], kmer[14], kmer[15]}; // TODO: last index is KMER_SIZE
 

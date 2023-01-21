@@ -9,7 +9,6 @@
 module window_hasher #(
 	parameter SKETCH_SIZE         =16,
 	          NUM_OF_BUCKETS      =256,
-	          LOG2_NUM_OF_BUCKETS =8,
 	          WINDOW_SIZE         =128,
 	          KMER_SIZE           =16
 ) (
@@ -18,12 +17,12 @@ module window_hasher #(
 	input	logic                        ready_for_hashing,
 	input logic  [1:0]                     window        [0:WINDOW_SIZE-1], // consists of WINDOW_SIZE kmers
 	
-	output logic [LOG2_NUM_OF_BUCKETS-1:0] hashed_sketch [0:SKETCH_SIZE-1], // vector of SKETCH_SIZE size with each value representing the value of the K-mer after h2 is applied on it
+	output logic [$clog2(NUM_OF_BUCKETS)-1:0] hashed_sketch [0:SKETCH_SIZE-1], // vector of SKETCH_SIZE size with each value representing the value of the K-mer after h2 is applied on it
 	output logic                           hashing_is_done                  // turns on for one clock cycle when ready
 );
 
 logic [31:0] h1_all_kmers  [0:WINDOW_SIZE - KMER_SIZE]; // h1 run on all possible kmers
-logic [LOG2_NUM_OF_BUCKETS-1:0] h2_all_kmers  [0:WINDOW_SIZE - KMER_SIZE]; // h2 run on all possible kmers
+logic [$clog2(NUM_OF_BUCKETS)-1:0] h2_all_kmers  [0:WINDOW_SIZE - KMER_SIZE]; // h2 run on all possible kmers
 
 logic is_hashing_active;
 
@@ -60,7 +59,6 @@ always @(posedge clk or posedge reset_window_hasher) begin
 	else if (ready_for_hashing == 1'b1 && is_hashing_active == 1'b0) begin
 		
 		is_hashing_active = 1'b1;
-		// dynamic_h1_all_kmers[0:WINDOW_SIZE - KMER_SIZE] = h1_all_kmers[0:WINDOW_SIZE - KMER_SIZE];
 	end
 	
 	else if (is_hashing_active == 1'b1 && hashing_is_done == 1'b0) begin

@@ -9,7 +9,6 @@
 module window_hasher_tb #(
 	parameter SKETCH_SIZE         =16,
 			  NUM_OF_BUCKETS      =256,
-			  LOG2_NUM_OF_BUCKETS =8,
 			  WINDOW_SIZE         =128,
 			  KMER_SIZE           =16
 ) ();
@@ -20,7 +19,7 @@ logic                        ready_for_hashing;
 logic  [1:0]                     window       [0:WINDOW_SIZE-1]; // consists of WINDOW_SIZE kmers
 
 
-logic [LOG2_NUM_OF_BUCKETS-1:0] hashedSketch [0:SKETCH_SIZE-1]; // vector of SKETCH_SIZE size with each value representing the value of the K-mer after h2 is applied on it
+logic [$clog2(NUM_OF_BUCKETS)-1:0] hashedSketch [0:SKETCH_SIZE-1]; // vector of SKETCH_SIZE size with each value representing the value of the K-mer after h2 is applied on it
 logic                           hashing_is_done;                 // turns on for one clock cycle when ready
 
 window_hasher U1 (.*);
