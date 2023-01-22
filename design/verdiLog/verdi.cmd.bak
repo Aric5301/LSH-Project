@@ -1,5 +1,326 @@
 simSetSimulator "-vcssv" -exec "simv" -args " " -uvmDebug on
 debImport "-i" "-simflow" "-dbdir" "simv.daidir"
 srcTBInvokeSim
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "hashed_sketch" -line 38 -pos 1 -win $_nTrace1
+wvCreateWindow
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "count_bus" -line 39 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "is_insert" -line 33 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "is_query" -line 34 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+wvSelectSignal -win $_nWave3 {( "G1" 4 )} 
+wvCut -win $_nWave3
+wvSetPosition -win $_nWave3 {("G2" 0)}
+wvSetPosition -win $_nWave3 {("G1" 3)}
+wvSelectSignal -win $_nWave3 {( "G1" 3 )} 
+wvCut -win $_nWave3
+wvSetPosition -win $_nWave3 {("G2" 0)}
+wvSetPosition -win $_nWave3 {("G1" 2)}
+wvSelectSignal -win $_nWave3 {( "G1" 2 )} 
+wvCut -win $_nWave3
+wvSetPosition -win $_nWave3 {("G2" 0)}
+wvSetPosition -win $_nWave3 {("G1" 1)}
+wvSelectSignal -win $_nWave3 {( "G1" 1 )} 
+wvCut -win $_nWave3
+wvSetPosition -win $_nWave3 {("G2" 0)}
+wvSetPosition -win $_nWave3 {("G1" 0)}
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "hashing_is_done" -line 24 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "calculate_matched_window" -line 25 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "reset_stats" -line 26 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "clk" -line 27 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "reset_hash_table" -line 28 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "window" -line 29 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "window_id" -line 30 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "ready_for_hashing" -line 31 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "reset_window_hasher" -line 32 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "is_insert" -line 33 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "is_query" -line 34 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "hashed_sketch" -line 38 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "count_bus" -line 39 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+verdiDockWidgetMaximize -dock windowDock_nWave_3
+verdiDockWidgetRestore -dock windowDock_nWave_3
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "matched_window_id" -line 35 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 13)}
+wvSetPosition -win $_nWave3 {("G1" 12)}
+wvSetPosition -win $_nWave3 {("G1" 11)}
+wvMoveSelected -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 11)}
+wvSetPosition -win $_nWave3 {("G1" 12)}
+verdiDockWidgetMaximize -dock windowDock_nWave_3
+srcTBRunSim
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+verdiDockWidgetRestore -dock windowDock_nWave_3
+srcHBSelect "main.hash_table_inst" -win $_nTrace1
+srcSetScope "main.hash_table_inst" -delim "." -win $_nTrace1
+srcHBSelect "main.hash_table_inst" -win $_nTrace1
+srcSelect -signal "theTable" -line 25 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+verdiDockWidgetMaximize -dock windowDock_nWave_3
+srcTBSimReset
+srcTBRunSim
+wvSelectSignal -win $_nWave3 {( "G1" 13 14 15 )} 
+wvSelectGroup -win $_nWave3 {G2}
+wvSelectGroup -win $_nWave3 {G2}
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoomIn -win $_nWave3
+wvZoom -win $_nWave3 4.632933 4.907477
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvSetCursor -win $_nWave3 6.214194 -snap {("G1" 1)}
+wvSetCursor -win $_nWave3 6.100645
+wvSelectSignal -win $_nWave3 {( "G1" 5 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 6 )} 
+wvSetPosition -win $_nWave3 {("G1" 6)}
+wvExpandBus -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 141)}
+wvScrollUp -win $_nWave3 102
+wvSelectSignal -win $_nWave3 {( "G1" 6 )} 
+wvSetPosition -win $_nWave3 {("G1" 6)}
+wvCollapseBus -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 6)}
+wvSetPosition -win $_nWave3 {("G1" 13)}
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvSetCursor -win $_nWave3 3911.019355 -snap {("G1" 0)}
+wvSetCursor -win $_nWave3 3424.784516
+wvSetCursor -win $_nWave3 3636.190968
+wvSetCursor -win $_nWave3 3509.347097
+wvSetCursor -win $_nWave3 3509.347097
+wvSetCursor -win $_nWave3 3509.347097
+wvSetCursor -win $_nWave3 3530.487742
+wvSetCursor -win $_nWave3 3593.909677
+wvSetCursor -win $_nWave3 3699.612903
+wvSetCursor -win $_nWave3 3720.753548
+wvSetCursor -win $_nWave3 3720.753548
+wvSetCursor -win $_nWave3 3699.612903
+wvSetCursor -win $_nWave3 3678.472258
+wvSetCursor -win $_nWave3 3657.331613
+wvSetCursor -win $_nWave3 3636.190968
+wvSetCursor -win $_nWave3 3615.050323
+wvSetCursor -win $_nWave3 3593.909677
+wvZoomAll -win $_nWave3
+wvPrevView -win $_nWave3
+wvZoom -win $_nWave3 3510.558000 3793.667516
+wvSetCursor -win $_nWave3 3620.696734 -snap {("G1" 0)}
+wvSetCursor -win $_nWave3 3622.340596 -snap {("G1" 0)}
+wvSetCursor -win $_nWave3 3619.966129 -snap {("G1" 0)}
+wvSetCursor -win $_nWave3 3616.130452 -snap {("G1" 0)}
+wvSetCursor -win $_nWave3 3625.000000
+wvSetCursor -win $_nWave3 3614.486590
+wvSetCursor -win $_nWave3 3622.888550 -snap {("G1" 0)}
+wvSetCursor -win $_nWave3 3625.000000
+wvSetCursor -win $_nWave3 3625.000000
+wvSetCursor -win $_nWave3 3621.975293
+wvSelectSignal -win $_nWave3 {( "G1" 13 )} 
+wvExpandBus -win $_nWave3
+wvScrollUp -win $_nWave3 5
+wvScrollDown -win $_nWave3 8
+wvScrollUp -win $_nWave3 52
+wvScrollUp -win $_nWave3 188
+wvZoom -win $_nWave3 3621.609991 3624.532412
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvZoomOut -win $_nWave3
+wvSelectSignal -win $_nWave3 {( "G1" 13 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 13 )} 
+wvSetPosition -win $_nWave3 {("G1" 13)}
+wvCollapseBus -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 13)}
+wvSelectSignal -win $_nWave3 {( "G1" 14 )} 
+wvSetPosition -win $_nWave3 {("G1" 14)}
+wvExpandBus -win $_nWave3
+wvSelectSignal -win $_nWave3 {( "G1" 14 )} 
+wvSetPosition -win $_nWave3 {("G1" 14)}
+wvCollapseBus -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 14)}
+wvSelectSignal -win $_nWave3 {( "G1" 13 )} 
+wvSetPosition -win $_nWave3 {("G1" 13)}
+wvExpandBus -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 270)}
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollDown -win $_nWave3 1
+wvScrollDown -win $_nWave3 1
+wvScrollDown -win $_nWave3 1
+wvScrollDown -win $_nWave3 1
+wvScrollDown -win $_nWave3 1
+wvScrollDown -win $_nWave3 1
+wvScrollUp -win $_nWave3 53
+wvScrollUp -win $_nWave3 179
+wvSelectSignal -win $_nWave3 {( "G1" 13 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 13 )} 
+wvSetPosition -win $_nWave3 {("G1" 13)}
+wvCollapseBus -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 13)}
+wvSetPosition -win $_nWave3 {("G1" 14)}
+verdiDockWidgetRestore -dock windowDock_nWave_3
+srcHBSelect "main.hash_table_inst" -win $_nTrace1
+srcSetScope "main.hash_table_inst" -delim "." -win $_nTrace1
+srcHBSelect "main.hash_table_inst" -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "tableLength" -line 26 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+verdiDockWidgetMaximize -dock windowDock_nWave_3
+srcTBSimReset
+srcTBRunSim
+wvSelectSignal -win $_nWave3 {( "G1" 15 16 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 15 )} 
+wvSetPosition -win $_nWave3 {("G1" 16)}
+wvMoveSelected -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 16)}
+wvSelectSignal -win $_nWave3 {( "G1" 13 14 15 16 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 15 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 15 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 13 14 15 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 13 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 12 13 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 13 )} 
+wvSetPosition -win $_nWave3 {("G1" 13)}
+wvSetPosition -win $_nWave3 {("G1" 14)}
+wvSetPosition -win $_nWave3 {("G1" 15)}
+wvSetPosition -win $_nWave3 {("G1" 16)}
+wvSetPosition -win $_nWave3 {("G1" 15)}
+wvMoveSelected -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 15)}
+wvSelectGroup -win $_nWave3 {G2}
+wvSetCursor -win $_nWave3 3624.362016 -snap {("G1" 0)}
+wvSetCursor -win $_nWave3 3622.793336 -snap {("G1" 0)}
+wvSetCursor -win $_nWave3 3622.431333 -snap {("G1" 0)}
+wvSetCursor -win $_nWave3 3621.345324
+wvSetCursor -win $_nWave3 3621.707327
+wvSetCursor -win $_nWave3 3622.431333
+wvSelectSignal -win $_nWave3 {( "G1" 16 )} 
+wvSetPosition -win $_nWave3 {("G1" 16)}
+wvExpandBus -win $_nWave3
+wvScrollDown -win $_nWave3 0
+wvScrollUp -win $_nWave3 240
+wvSelectSignal -win $_nWave3 {( "G1" 16 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 16 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 16 )} 
+wvSetPosition -win $_nWave3 {("G1" 16)}
+wvCollapseBus -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 16)}
+wvSetCursor -win $_nWave3 23922.844292
+wvSelectSignal -win $_nWave3 {( "G1" 16 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 16 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 16 )} 
+wvExpandBus -win $_nWave3
+wvScrollUp -win $_nWave3 240
+wvSelectSignal -win $_nWave3 {( "G1" 16 )} 
+wvSetPosition -win $_nWave3 {("G1" 16)}
+wvCollapseBus -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 16)}
+verdiDockWidgetRestore -dock windowDock_nWave_3
+srcHBSelect "main.hash_table_inst" -win $_nTrace1
+srcSetScope "main.hash_table_inst" -delim "." -win $_nTrace1
+srcHBSelect "main.hash_table_inst" -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "is_insert" -line 41 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave3
+verdiDockWidgetMaximize -dock windowDock_nWave_3
+srcTBSimReset
 srcTBRunSim
 debExit

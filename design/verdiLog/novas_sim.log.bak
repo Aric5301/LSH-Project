@@ -1,31 +1,67 @@
-Invoking simulator...
-
-simv -sml=verdi +UVM_VERDI_TRACE=UVM_AWARE +fsdb+gate=off -ucli2Proc -ucli
-debImport "-i" "-simflow" "-dbdir" "simv.daidir"
+Verdi>restart
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version R-2020.12_Full64; Runtime version R-2020.12_Full64;  Jan 21 21:38 2023
-
+Compiler version R-2020.12_Full64; Runtime version R-2020.12_Full64;  Jan 22 21:14 2023
 *Verdi* Loading libsscore_vcs202012.so
-
 FSDB Dumper for VCS, Release Verdi_R-2020.12, Linux x86_64/64bit, 11/19/2020
 (C) 1996 - 2020 by Synopsys, Inc.
-
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
 *Verdi* : Create FSDB file '/users/epebar/Project/design/inter.fsdb'
-
 *Verdi* : Flush all FSDB Files at 0 s.
-
-*Verdi* : Enable RPC Server(24922)
-
-srcTBInvokeSim
+*Verdi* : Enable RPC Server(1239)
+*Verdi* : Flush all FSDB Files at 0 s.
 Verdi>run
-@0 matched_window_id= 4294967295
-$finish called from file "work/stats_tb.sv", line 45.
-$finish at simulation time                   15
-Simulation complete, time is 15.
-stats_tb.sv, 45 : 	$finish;
+Beginning to read reference file
+Beginning reading window #0...
+Finished reading window #0.
+Beginning hashing...
+Hashing is done.
+Beginning reading window #1...
+Finished reading window #1.
+Beginning hashing...
+Hashing is done.
+Beginning reading window #2...
+Finished reading window #2.
+Beginning hashing...
+Hashing is done.
+Beginning reading window #3...
+Finished reading window #3.
+Beginning hashing...
+Hashing is done.
+Beginning reading window #4...
+Finished reading window #4.
+Beginning hashing...
+Hashing is done.
+Beginning reading window #5...
+Finished reading window #5.
+Beginning hashing...
+Hashing is done.
+Beginning reading window #6...
+Finished reading window #6.
+Beginning hashing...
+Hashing is done.
+Finished inserting reference.
+Beginning to read read file #0
+Beginning reading window #0...
+Finished reading window #0.
+Beginning hashing...
+Hashing is done.
+Finished querying read.
+No matching window was found.
+
+Warning-[STASKW_CO] Cannot open file
+work/main.sv, 254
+  The file './read_files/read_sv_1' could not be opened. No such file or 
+  directory.
+  Please ensure that the file exists with proper permissions.
+
+Done.
+$finish called from file "work/main.sv", line 259.
+$finish at simulation time                28965
+Simulation complete, time is 28965.
+main.sv, 259 : 			$finish;
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 15
-CPU Time:      0.040 seconds;       Data structure size:   0.0Mb
-Sat Jan 21 21:39:48 2023
+Time: 28965
+CPU Time:      0.090 seconds;       Data structure size:   0.1Mb
+Sun Jan 22 21:16:22 2023
 debExit
