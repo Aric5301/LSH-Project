@@ -3,7 +3,10 @@ VLOGAN	= vlogan
 VLOGAN_OPT	= -kdb -sverilog -full64 -full64
 
 all :		_VCSgd_TwQtnc_1.db \
-	_VCSgd_XtZJqc_1.db \
+	_VCSgd_7jcthb_1.db \
+	_VCSgd_whcQde_1.db \
+	_VCSgd_GOJyqd_1.db \
+	_VCSgd_waTvEc_1.db \
 
 
 
@@ -11,7 +14,19 @@ _VCSgd_TwQtnc_1.db :	work/stats.sv
 		${VLOGAN}  ${VLOGAN_OPT} work/stats.sv
 
 
-_VCSgd_XtZJqc_1.db :	work/stats_tb.sv 
-		${VLOGAN}  ${VLOGAN_OPT} work/stats_tb.sv
+_VCSgd_7jcthb_1.db :	work/hash_table.sv 
+		${VLOGAN}  ${VLOGAN_OPT} work/hash_table.sv
+
+
+_VCSgd_whcQde_1.db :	work/hasher.sv 
+		${VLOGAN}  ${VLOGAN_OPT} work/hasher.sv
+
+
+_VCSgd_GOJyqd_1.db :	work/window_hasher.sv 
+		${VLOGAN}  ${VLOGAN_OPT} work/window_hasher.sv
+
+
+_VCSgd_waTvEc_1.db :	work/main.sv 
+		${VLOGAN}  ${VLOGAN_OPT} work/main.sv
 
 

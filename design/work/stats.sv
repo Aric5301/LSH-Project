@@ -8,15 +8,15 @@
 
 module	stats #(
 	parameter MAX_WINDOWS_IN_REFERENCE = 512,
-				BUCKET_SIZE              =16,
-			  WINDOWS_PER_QUERY = 1, // In the future this might change
-			  MAX_WINDOWS_IN_READ = 16
+	          BUCKET_SIZE              =16,
+	          WINDOWS_PER_QUERY        = 1, // In the future this might change
+	          MAX_WINDOWS_IN_READ      = 16
 ) (
-	input logic                            clk,
-	input logic                            reset_stats,
-	input logic                            is_query,
-	input logic [31:0]                    count_bus    [0:MAX_WINDOWS_IN_REFERENCE-1], // currently supports up to 1024 windows
-	input logic                    calculate_matched_window,
+	input logic                clk,
+	input logic                reset_stats,
+	input logic                is_query,
+	input logic         [31:0] count_bus [0:MAX_WINDOWS_IN_REFERENCE-1], // currently supports up to 1024 windows
+	input logic                calculate_matched_window,
 	
 	output logic signed [31:0] matched_window_id
 );
@@ -42,11 +42,11 @@ always @(posedge reset_stats or posedge clk) begin
 	end
 	
 	else begin
-	
-		if (calculate_matched_window == 1'b1) begin
 		
+		if (calculate_matched_window == 1'b1) begin
+			
 			for (int j = 0; j < MAX_WINDOWS_IN_REFERENCE; j = j + 1) begin
-					
+				
 				if (j <= MAX_WINDOWS_IN_REFERENCE - (number_of_windows + 2)) begin
 					
 					for (int i = 0; i <= MAX_WINDOWS_IN_READ + 2; i = i + 1) begin
@@ -65,16 +65,16 @@ always @(posedge reset_stats or posedge clk) begin
 				end
 				
 				else begin
-				
-				
+					
+					
 				end
 			end
 		end
 		
 		if (is_query == 1'b0 && previous_is_query == 1'b1) begin // detect is_query release
-		
+			
 			number_of_windows = number_of_windows + 1;
-
+			
 			for (int i = 0; i < MAX_WINDOWS_IN_REFERENCE; i++) begin
 				my_count_bus[i] = my_count_bus[i] + count_bus[i];
 			end

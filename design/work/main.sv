@@ -13,7 +13,8 @@ module main #(
 	          NUM_OF_BUCKETS           = 256,
 	          BUCKET_SIZE              = 16,
 	          MAX_WINDOWS_IN_REFERENCE = 512,
-	          MAX_WINDOWS_IN_READ      = 16
+	          MAX_WINDOWS_IN_READ      = 16,
+	          WINDOWS_PER_QUERY        = 1 // For dealing with multiple read windows at once using posible future query module
 ) ();
 
 
@@ -41,7 +42,7 @@ logic  [31:0]                       count_bus     [0:MAX_WINDOWS_IN_REFERENCE-1]
 
 // Modules Instantiation
 // ==================================================
-window_hasher window_hasher (
+window_hasher window_hasher_inst (
 	// Inputs
 	.clk                (clk                ),
 	.reset_window_hasher(reset_window_hasher),
@@ -52,8 +53,12 @@ window_hasher window_hasher (
 	.hashed_sketch      (hashed_sketch      ),
 	.hashing_is_done    (hashing_is_done    )
 );
+defparam window_hasher_inst.SKETCH_SIZE = SKETCH_SIZE;
+defparam window_hasher_inst.NUM_OF_BUCKETS = NUM_OF_BUCKETS;
+defparam window_hasher_inst.WINDOW_SIZE = WINDOW_SIZE;
+defparam window_hasher_inst.KMER_SIZE = KMER_SIZE;
 
-hash_table hash_table (
+hash_table hash_table_inst (
 	// Inputs
 	.clk             (clk             ),
 	.reset_hash_table(reset_hash_table),
@@ -65,8 +70,12 @@ hash_table hash_table (
 	// Outputs
 	.count_bus       (count_bus       )
 );
+defparam hash_table_inst.SKETCH_SIZE = SKETCH_SIZE;
+defparam hash_table_inst.NUM_OF_BUCKETS = NUM_OF_BUCKETS;
+defparam hash_table_inst.BUCKET_SIZE = BUCKET_SIZE;
+defparam hash_table_inst.MAX_WINDOWS_IN_REFERENCE = MAX_WINDOWS_IN_REFERENCE;
 
-stats stats (
+stats stats_inst (
 	// Inputs
 	.clk                     (clk                     ),
 	.reset_stats             (reset_stats             ),
@@ -77,115 +86,170 @@ stats stats (
 	// Outputs
 	.matched_window_id       (matched_window_id       )
 );
+defparam stats_inst.MAX_WINDOWS_IN_REFERENCE = MAX_WINDOWS_IN_REFERENCE;
+defparam stats_inst.BUCKET_SIZE = BUCKET_SIZE;
+defparam stats_inst.WINDOWS_PER_QUERY = WINDOWS_PER_QUERY;
+defparam stats_inst.MAX_WINDOWS_IN_READ = MAX_WINDOWS_IN_READ;
 // ==================================================
 
+always #1 clk=~clk; // Creation of a clock
+
+task reset_all();
+	clk = 1'b0;
+	
+	reset_hash_table = 1'b1;
+	reset_window_hasher = 1'b1;
+	reset_stats = 1'b1;
+	
+	calculate_matched_window = 1'b0;
+	window = '{default: '0};
+	window_id = 0;
+	ready_for_hashing = 1'b0;
+	is_insert = 1'b0;
+	is_query = 1'b0;
+	
+	#2;
+	
+	reset_hash_table = 1'b0;
+	reset_window_hasher = 1'b0;
+	reset_stats = 1'b0;
+endtask
 
 // Variables
 // ==================================================
-logic isReference;
-
-int temp;
+int char;
 int fd;
-int i = 0;
-int j = 0;
-int k = 0;
-int scanned = 0;
-int dummy;
+int i;
+int read_file_number;
+int fseek_output;
 
-string file_name;
-string file_number;
+string read_file_name;
 // ==================================================
 
-// turning sections from read and reference files to windows, handling required flags
-task window_maker(int fd, logic isReference);
+// Read windows from given reference or read files and feed them to hardware
+task read_and_feed_windows(int fd, logic is_reference);
 	
-	// flags reset
-	is_insert = 1'b0;
-	is_query = 1'b0;
-	i = 0;
+	i = 0; // Current window index
 	
-	while (!($feof(fd))) begin
-		ready_for_hashing = 1'b0;
-		reset_window_hasher = 1'b1;
-		#2
-				reset_window_hasher = 1'b0;
+	reset_window_hasher = 1'b1;
+	reset_stats = 1'b1;
+	#2;
+	reset_window_hasher = 1'b0;
+	reset_stats = 1'b0;
+	
+	while (1'b1) begin
 		
-		// assigning to window according to nucleotides in file
-		for(int j = 0 ; j < WINDOW_SIZE ; j++) begin
-			if (($feof(fd))) begin
-				break;
-			end
-			temp = $fgetc(fd);
-			case (temp)
+		// Assign to window according to nucleotides in file
+		$display("Beginning reading window #%d...", window_id);
+		for (int j = 0; j < WINDOW_SIZE; j++) begin
+			/*if ($feof(fd))
+				break;*/
+			
+			char = $fgetc(fd);
+			case (char)
 				"A": window[j] = 2'b00;
 				"C": window[j] = 2'b01;
 				"G": window[j] = 2'b10;
 				"T": window[j] = 2'b11;
 			endcase
 		end
-		if (($feof(fd))) begin
-			break;
-		end
+		/*if ($feof(fd))
+		break;*/
+		
 		window_id = i;
-		$display("%d", window_id);
+		
+		$display("Finished reading window #%d.", window_id);
+		$display("Beginning hashing...");
+		
 		ready_for_hashing = 1'b1;
-		while (!(hashing_is_done)) begin
-			#2;
-		end
-		if (isReference) begin
+		wait (hashing_is_done == 1'b1)
+		$display("Hashing is done.");
+		ready_for_hashing = 1'b0;
+		
+		if (is_reference) begin
+			
 			is_insert = 1'b1;
 			#2;
 			is_insert = 1'b0;
 		end
 		else begin
+			
 			is_query = 1'b1;
-			#2
-					is_query = 1'b0;
+			#2;
+			is_query = 1'b0;
 		end
-		if (!($feof(fd))) begin
+		if ($feof(fd)) begin
+			
+			if (!is_reference) begin
+				calculate_matched_window = 1'b1;
+				#2;
+				$display("Finished Querying read.");
+				if (matched_window_id != -1) begin
+					
+					$display("Matched window id is: %d.", matched_window_id);
+				end
+				else begin
+					
+					$display("No matching window was found.");
+				end
+				calculate_matched_window = 1'b0;
+			end
+		end
+		else begin
+			
 			i++;
-			dummy = $fseek(fd, (WINDOW_SIZE - KMER_SIZE + 1) * i, 0);
+			fseek_output = $fseek(fd, (WINDOW_SIZE - KMER_SIZE + 1) * i, 0);
+			if (fseek_output > 0) begin
+				
+				$display("fseek error");
+				$fclose(fd);
+				$finish;
+			end
+
+			reset_window_hasher = 1'b1;
+			#2;
+			reset_window_hasher = 1'b0;
 		end
 		
 	end
 endtask
 
-always #1 clk=~clk; // creation of clock
 
-
+// Main
+// ==================================================
 initial begin
+	reset_all();
 	
-	clk = 1'b0;
-	reset_hash_table = 1'b1;
-	#2
-			reset_hash_table = 1'b0;
-	
-	
-	// opening reference file
+	// Open and insert reference file
+	$display("Beginning to read reference file");
 	fd = $fopen("reference_sv", "r");
-	isReference = 1'b1;
-	window_maker(fd, isReference);
-	
-	
-	// opening read files
-	while (1'b1) begin
-		$sformat(file_number,"%0d",k);
-		file_name = {"./read_files/read_sv_", file_number};
-		fd = $fopen(file_name, "r");
-		$display("%d", fd);
-		if(fd == 0) begin
-			$display("KULULU");
-			break;
-		end
-		j++;
-		isReference = 1'b0;
-		window_maker(fd, isReference);
-		$fclose(fd);
+	if (fd == 0) begin
+		
+		$display("Could not open reference_sv");
+		$finish;
 	end
-	
+	read_and_feed_windows(fd, 1'b1);
 	$fclose(fd);
-	$finish;
 	
-end
-endmodule
+	// Open and query read files
+	read_file_number = 0;
+	while (1'b1) begin
+		
+		$sformat(read_file_name,"./read_files/read_sv_%d",read_file_number);
+		fd = $fopen(read_file_name, "r");
+		
+		if (fd == 0) begin
+			
+			$display("Done.");
+			$finish;
+		end
+		
+		$display("Beginning to read read file #", read_file_number);
 
+		read_file_number++;
+		read_and_feed_windows(fd, 1'b0);
+		$fclose(fd);
+	end	
+end
+// ==================================================
+endmodule
