@@ -384,7 +384,7 @@ savePropDtl = TRUE
 [QtDialog]
 SetWindowTimeUnitDialog = 742,509,433,86
 QwWarnMsgDlg = 650,792,600,250
-QwUserAskDlg = 798,487,324,134
+QwUserAskDlg = 798,489,324,130
 [Relationship]
 hideRecursiceNode = FALSE
 [Safety]
@@ -590,7 +590,7 @@ pdmlMacro = ID_BLACK
 font = COURIER12
 annotFont = Helvetica_M_R_10
 [Text.1]
-viewport = -1 27 1920 977 45
+viewport = 0 0 1920 977 45
 [TextPrinter]
 Orientation = Landscape
 Indicator = FALSE
@@ -682,40 +682,40 @@ DefaultLogTimeUnit = "1.000000ns"
 parRuleSets = "/eda/synopsys/2020-21/RHELx86/VERDI_2020.12/share/VIA/Apps/PredefinedParRules/par_rule_OVM.rc /eda/synopsys/2020-21/RHELx86/VERDI_2020.12/share/VIA/Apps/PredefinedParRules/par_rule_UVM.rc /eda/synopsys/2020-21/RHELx86/VERDI_2020.12/share/VIA/Apps/Predefin\
 edParRules/par_rule_LP.rc /eda/synopsys/2020-21/RHELx86/VERDI_2020.12/share/VIA/Apps/PredefinedParRules/par_rule_VCS.rc "
 [VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column0]
-name = Severity
-width = 60
-visualIndex = 1
-isHidden = FALSE
-isUserChangeColumnVisible = FALSE
-[VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column1]
 name = Reporter
 width = 60
 visualIndex = 2
 isHidden = FALSE
 isUserChangeColumnVisible = FALSE
-[VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column2]
-name = Message
-width = 2000
-visualIndex = 5
-isHidden = FALSE
-isUserChangeColumnVisible = FALSE
-[VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column3]
-name = Time
+[VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column1]
+name = Severity
 width = 60
-visualIndex = 0
+visualIndex = 1
 isHidden = FALSE
 isUserChangeColumnVisible = FALSE
-[VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column4]
+[VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column2]
 name = Code
 width = 60
 visualIndex = 3
 isHidden = FALSE
 isUserChangeColumnVisible = FALSE
-[VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column5]
+[VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column3]
 name = Type
 width = 60
 visualIndex = 4
 isHidden = TRUE
+isUserChangeColumnVisible = FALSE
+[VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column4]
+name = Message
+width = 2000
+visualIndex = 5
+isHidden = FALSE
+isUserChangeColumnVisible = FALSE
+[VIA.interactiveDebug.preference.vgifColumnSettingRC.setting0.column5]
+name = Time
+width = 60
+visualIndex = 0
+isHidden = FALSE
 isUserChangeColumnVisible = FALSE
 [VIA.oneSearch.preference]
 DefaultDisplayTimeUnit = "1.000000ns"

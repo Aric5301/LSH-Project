@@ -126,7 +126,7 @@ logic was_reading_cancelled;
 string read_file_name;
 // ==================================================
 
-// Read windows from given reference or read files and feed them to hardware
+// Reads windows from given reference or read file and feed them to hardware
 task read_and_feed_windows(int fd, logic is_reference);
 	
 	window_id = 0; // Current window index
@@ -259,11 +259,11 @@ initial begin
 			$finish;
 		end
 		
-		$display("Beginning to read read file #%0d", read_file_number);
-
-		read_file_number++;
+		$display("Beginning to read read file #%0d", read_file_number);	
 		read_and_feed_windows(fd, 1'b0);
 		$fclose(fd);
+		
+		read_file_number++;
 	end	
 end
 // ==================================================
