@@ -141,7 +141,7 @@ task read_and_feed_windows(int fd, logic is_reference);
 	while (1'b1) begin
 		
 		// Assign to window according to nucleotides in file
-		$display("Beginning reading window #%0d...", window_id);
+		// $display("Beginning reading window #%0d...", window_id); // TODO: This is a debugging print
 		for (int j = 0; j < WINDOW_SIZE && !was_reading_cancelled; j++) begin
 			
 			char = $fgetc(fd);
@@ -151,7 +151,7 @@ task read_and_feed_windows(int fd, logic is_reference);
 				"G": window[j] = 2'b10;
 				"T": window[j] = 2'b11;
 				default: begin
-					$display("Ignoring reading of window #%0d. It's too short.", window_id);
+					// $display("Ignoring reading of window #%0d. It's too short.", window_id);  // TODO: This is a debugging print
 					was_reading_cancelled = 1'b1;
 				end
 			endcase
@@ -164,12 +164,12 @@ task read_and_feed_windows(int fd, logic is_reference);
 		
 		if (!was_reading_cancelled) begin
 			
-			$display("Finished reading window #%0d.", window_id);
-			$display("Beginning hashing...");
+			// $display("Finished reading window #%0d.", window_id); // TODO: This is a debugging print
+			// $display("Beginning hashing..."); // TODO: This is a debugging print
 			
 			ready_for_hashing = 1'b1;
 			wait (hashing_is_done == 1'b1)
-			$display("Hashing is done.");
+			// $display("Hashing is done."); // TODO: This is a debugging print
 			ready_for_hashing = 1'b0;
 			
 			if (is_reference) begin
@@ -259,7 +259,7 @@ initial begin
 			$finish;
 		end
 		
-		$display("Beginning to read read file #%0d", read_file_number);	
+		$display("Beginning to query read file #%0d", read_file_number);	
 		read_and_feed_windows(fd, 1'b0);
 		$fclose(fd);
 		
