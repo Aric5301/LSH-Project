@@ -26,7 +26,7 @@ fdb_campaign =
 fdb_tool = 
 [hb]
 postSimFile = /users/epebar/Project/design/inter.fsdb
-syncTime = 36265
+syncTime = 0
 viewport = 0 0 1920 977 0 0 301 1918
 activeNode = "main"
 activeScope = "main"
@@ -34,7 +34,7 @@ activeFile = "work/main.sv"
 interactiveMode = False
 viewType = Source
 simulatorMode = False
-sourceBeginLine = 244
+sourceBeginLine = 8
 baMode = False
 srcLineNum = True
 AutoWrap = True
@@ -52,7 +52,7 @@ leadingZero = False
 signalPane = False
 SourceVerticalScrollLines = 5
 Scope1 = "main"
-rangeSelection = 259 259 1 6 1 1
+multipleSelection = 1 8 2 0 0
 sdfCheckUndef = FALSE
 simFlow = FALSE
 [hb.design]
@@ -61,7 +61,7 @@ invokeDir = /users/epebar/Project/design
 [hb.sourceTab.1]
 scope = main
 File = /users/epebar/Project/design/work/main.sv
-Line = 245
+Line = 9
 [nMemoryManager]
 WaveformFile = /users/epebar/Project/design/inter.fsdb
 UserActionNum = 0

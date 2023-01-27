@@ -177,12 +177,14 @@ task read_and_feed_windows(int fd, logic is_reference);
 				is_insert = 1'b1;
 				#4;
 				is_insert = 1'b0;
+				#4;
 			end
 			else begin
 				
 				is_query = 1'b1;
 				#4;
 				is_query = 1'b0;
+				#4;
 			end
 		end
 		
@@ -237,7 +239,7 @@ initial begin
 	
 	// Open and insert reference file
 	$display("Beginning to read reference file");
-	fd = $fopen("./reference_sv", "r");
+	fd = $fopen("./reference_sv.txt", "r");
 	if (fd == 0) begin
 		
 		$display("Could not open reference_sv");
@@ -250,7 +252,7 @@ initial begin
 	read_file_number = 0;
 	while (1'b1) begin
 		
-		$sformat(read_file_name,"./read_files/read_sv_%0d",read_file_number);
+		$sformat(read_file_name,"./read_files/read_sv_%0d.txt",read_file_number);
 		fd = $fopen(read_file_name, "r");
 		
 		if (fd == 0) begin
