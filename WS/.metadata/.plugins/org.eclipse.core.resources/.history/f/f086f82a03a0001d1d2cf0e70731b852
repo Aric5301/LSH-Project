@@ -1,0 +1,298 @@
+/*------------------------------------------------------------------------------
+ * File          : main.sv
+ * Project       : RTL
+ * Author        : epebar
+ * Creation date : Jan 20, 2023
+ * Description   :
+ *------------------------------------------------------------------------------*/
+
+module main #(
+	parameter WINDOW_SIZE              = 128,
+	          KMER_SIZE                = 16,
+	          SKETCH_SIZE              = 16,
+	          NUM_OF_BUCKETS           = 256,
+	          BUCKET_SIZE              = 16,
+	          MAX_WINDOWS_IN_REFERENCE = 512,
+	          MAX_WINDOWS_IN_READ      = 16,
+	          WINDOWS_PER_QUERY        = 1 // For dealing with multiple read windows at once using posible future query module
+) ();
+
+
+// Wires
+// ==================================================
+// Interface between main and other modules
+logic                            hashing_is_done;
+logic                            calculate_matched_window;
+logic                            reset_stats;
+logic                            clk;
+logic                            reset_hash_table;
+logic  [1:0]                     window       [0:WINDOW_SIZE-1]; // consists of WINDOW_SIZE kmers
+logic  [31:0]                    window_id;
+logic                        	 ready_for_hashing;
+logic                        	 reset_window_hasher;
+logic                            is_insert;
+logic                            is_query;
+logic signed [31:0]              matched_window_id;
+
+// Inner interfaces between modules
+logic  [$clog2(NUM_OF_BUCKETS)-1:0] hashed_sketch [0:SKETCH_SIZE-1];
+logic  [31:0]                       count_bus     [0:MAX_WINDOWS_IN_REFERENCE-1];
+// ==================================================
+
+
+// Modules Instantiation
+// ==================================================
+top_level top_level_inst (
+	.calculate_matched_window(calculate_matched_window),
+	.reset_stats(reset_stats),
+	.clk(clk),
+	.reset_hash_table(reset_hash_table),
+	.window(window), // consists of WINDOW_SIZE kmers
+	.window_id(window_id),
+	.ready_for_hashing(ready_for_hashing),
+	.reset_window_hasher(reset_window_hasher),
+	.is_insert(is_insert),
+	.is_query(is_query),
+	
+	.hashing_is_done(hashing_is_done),
+	.matched_window_id(matched_window_id)
+);
+WINDOW_SIZE
+KMER_SIZE
+SKETCH_SIZE
+NUM_OF_BUCKETS
+BUCKET_SIZE
+MAX_WINDOWS_IN_REFERENCE
+MAX_WINDOWS_IN_READ
+WINDOWS_PER_QUERY
+
+
+
+window_hasher window_hasher_inst (
+	// Inputs
+	.clk                (clk                ),
+	.reset_window_hasher(reset_window_hasher),
+	.ready_for_hashing  (ready_for_hashing  ),
+	.window             (window             ),
+	
+	// Outputs
+	.hashed_sketch      (hashed_sketch      ),
+	.hashing_is_done    (hashing_is_done    )
+);
+defparam window_hasher_inst.SKETCH_SIZE = SKETCH_SIZE;
+defparam window_hasher_inst.NUM_OF_BUCKETS = NUM_OF_BUCKETS;
+defparam window_hasher_inst.WINDOW_SIZE = WINDOW_SIZE;
+defparam window_hasher_inst.KMER_SIZE = KMER_SIZE;
+
+hash_table hash_table_inst (
+	// Inputs
+	.clk             (clk             ),
+	.reset_hash_table(reset_hash_table),
+	.is_insert       (is_insert       ),
+	.is_query        (is_query        ),
+	.window_id       (window_id       ),
+	.hashed_sketch   (hashed_sketch   ),
+	
+	// Outputs
+	.count_bus       (count_bus       )
+);
+defparam hash_table_inst.SKETCH_SIZE = SKETCH_SIZE;
+defparam hash_table_inst.NUM_OF_BUCKETS = NUM_OF_BUCKETS;
+defparam hash_table_inst.BUCKET_SIZE = BUCKET_SIZE;
+defparam hash_table_inst.MAX_WINDOWS_IN_REFERENCE = MAX_WINDOWS_IN_REFERENCE;
+
+stats stats_inst (
+	// Inputs
+	.clk                     (clk                     ),
+	.reset_stats             (reset_stats             ),
+	.is_query                (is_query                ),
+	.count_bus               (count_bus               ),
+	.calculate_matched_window(calculate_matched_window),
+	
+	// Outputs
+	.matched_window_id       (matched_window_id       )
+);
+defparam stats_inst.MAX_WINDOWS_IN_REFERENCE = MAX_WINDOWS_IN_REFERENCE;
+defparam stats_inst.BUCKET_SIZE = BUCKET_SIZE;
+defparam stats_inst.WINDOWS_PER_QUERY = WINDOWS_PER_QUERY;
+defparam stats_inst.MAX_WINDOWS_IN_READ = MAX_WINDOWS_IN_READ;
+// ==================================================
+
+always #1 clk=~clk; // Creation of a clock
+
+task reset_all();
+	clk = 1'b0;
+	
+	reset_hash_table = 1'b1;
+	reset_window_hasher = 1'b1;
+	reset_stats = 1'b1;
+	
+	calculate_matched_window = 1'b0;
+	window = '{default: '0};
+	window_id = 0;
+	ready_for_hashing = 1'b0;
+	is_insert = 1'b0;
+	is_query = 1'b0;
+	
+	#4;
+	
+	reset_hash_table = 1'b0;
+	reset_window_hasher = 1'b0;
+	reset_stats = 1'b0;
+endtask
+
+// Variables
+// ==================================================
+int char;
+int fd;
+int read_file_number;
+int fseek_output;
+logic was_reading_cancelled;
+
+string read_file_name;
+// ==================================================
+
+// Reads windows from given reference or read file and feed them to hardware
+task read_and_feed_windows(int fd, logic is_reference);
+	
+	window_id = 0; // Current window index
+	was_reading_cancelled = 1'b0;
+	
+	reset_window_hasher = 1'b1;
+	reset_stats = 1'b1;
+	#4;
+	reset_window_hasher = 1'b0;
+	reset_stats = 1'b0;
+	
+	while (1'b1) begin
+		
+		// Assign to window according to nucleotides in file
+		// $display("Beginning reading window #%0d...", window_id); // TODO: This is a debugging print
+		for (int j = 0; j < WINDOW_SIZE && !was_reading_cancelled; j++) begin
+			
+			char = $fgetc(fd);
+			case (char)
+				"A": window[j] = 2'b00;
+				"C": window[j] = 2'b01;
+				"G": window[j] = 2'b10;
+				"T": window[j] = 2'b11;
+				default: begin
+					// $display("Ignoring reading of window #%0d. It's too short.", window_id);  // TODO: This is a debugging print
+					was_reading_cancelled = 1'b1;
+				end
+			endcase
+		end
+		
+		// To solve eof final chars (like char 10):
+		char = $fgetc(fd);
+		char = $fgetc(fd);
+		
+		
+		if (!was_reading_cancelled) begin
+			
+			// $display("Finished reading window #%0d.", window_id); // TODO: This is a debugging print
+			// $display("Beginning hashing..."); // TODO: This is a debugging print
+			
+			ready_for_hashing = 1'b1;
+			wait (hashing_is_done == 1'b1)
+			// $display("Hashing is done."); // TODO: This is a debugging print
+			ready_for_hashing = 1'b0;
+			
+			if (is_reference) begin
+				
+				is_insert = 1'b1;
+				#4;
+				is_insert = 1'b0;
+				#4;
+			end
+			else begin
+				
+				is_query = 1'b1;
+				#4;
+				is_query = 1'b0;
+				#4;
+			end
+		end
+		
+		if ($feof(fd) || was_reading_cancelled) begin
+			
+			if (!is_reference) begin
+				
+				calculate_matched_window = 1'b1;
+				#4;
+				$display("Finished querying read.");
+				if (matched_window_id != -1) begin
+					
+					$display("Matched window id is: %0d.", matched_window_id);
+				end
+				else begin
+					
+					$display("No matching window was found.");
+				end
+				calculate_matched_window = 1'b0;
+			end
+			else begin
+				
+				$display("Finished inserting reference.");
+			end
+			
+			return;
+		end
+		else begin
+			
+			window_id++;
+			fseek_output = $fseek(fd, (WINDOW_SIZE - KMER_SIZE + 1) * window_id, 0);
+			if (fseek_output > 0) begin
+				
+				$display("fseek error");
+				$fclose(fd);
+				$finish;
+			end
+
+			reset_window_hasher = 1'b1;
+			#4;
+			reset_window_hasher = 1'b0;
+		end
+		
+	end
+endtask
+
+
+// Main
+// ==================================================
+initial begin
+	reset_all();
+	
+	// Open and insert reference file
+	$display("Beginning to read reference file");
+	fd = $fopen("./reference_sv.txt", "r");
+	if (fd == 0) begin
+		
+		$display("Could not open reference_sv");
+		$finish;
+	end
+	read_and_feed_windows(fd, 1'b1);
+	$fclose(fd);
+	
+	// Open and query read files
+	read_file_number = 0;
+	while (1'b1) begin
+		
+		$sformat(read_file_name,"./read_files/read_sv_%0d.txt",read_file_number);
+		fd = $fopen(read_file_name, "r");
+		
+		if (fd == 0) begin
+			
+			$display("Done.");
+			$finish;
+		end
+		
+		$display("Beginning to query read file #%0d", read_file_number);	
+		read_and_feed_windows(fd, 1'b0);
+		$fclose(fd);
+		
+		read_file_number++;
+	end	
+end
+// ==================================================
+endmodule

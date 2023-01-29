@@ -8,3 +8,4 @@ work/window_hasher.sv
 work/window_hasher_tb.sv
 work/stats.sv
 work/stats_tb.sv
+work/top_level.sv

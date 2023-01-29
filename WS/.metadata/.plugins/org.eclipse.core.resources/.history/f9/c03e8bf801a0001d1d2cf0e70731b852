@@ -1,0 +1,20 @@
+/*------------------------------------------------------------------------------
+ * File          : top_level.sv
+ * Project       : RTL
+ * Author        : epebar
+ * Creation date : Jan 29, 2023
+ * Description   :
+ *------------------------------------------------------------------------------*/
+
+module top_level #(
+	parameter WINDOW_SIZE              = 128,
+			  KMER_SIZE                = 16,
+			  SKETCH_SIZE              = 16,
+			  NUM_OF_BUCKETS           = 256,
+			  BUCKET_SIZE              = 16,
+			  MAX_WINDOWS_IN_REFERENCE = 512,
+			  MAX_WINDOWS_IN_READ      = 16,
+			  WINDOWS_PER_QUERY        = 1 // For dealing with multiple read windows at once using posible future query module
+) ();
+
+endmodule

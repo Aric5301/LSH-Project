@@ -1,0 +1,72 @@
+/*------------------------------------------------------------------------------
+ * File          : top_level.sv
+ * Project       : RTL
+ * Author        : epebar
+ * Creation date : Jan 29, 2023
+ * Description   :
+ *------------------------------------------------------------------------------*/
+
+module top_level #(
+	parameter WINDOW_SIZE              = 128,
+			  KMER_SIZE                = 16,
+			  SKETCH_SIZE              = 16,
+			  NUM_OF_BUCKETS           = 256,
+			  BUCKET_SIZE              = 16,
+			  MAX_WINDOWS_IN_REFERENCE = 512,
+			  MAX_WINDOWS_IN_READ      = 16,
+			  WINDOWS_PER_QUERY        = 1 // For dealing with multiple read windows at once using posible future query module
+) ();
+
+// Modules Instantiation
+// ==================================================
+window_hasher window_hasher_inst (
+	// Inputs
+	.clk                (clk                ),
+	.reset_window_hasher(reset_window_hasher),
+	.ready_for_hashing  (ready_for_hashing  ),
+	.window             (window             ),
+	
+	// Outputs
+	.hashed_sketch      (hashed_sketch      ),
+	.hashing_is_done    (hashing_is_done    )
+);
+defparam window_hasher_inst.SKETCH_SIZE = SKETCH_SIZE;
+defparam window_hasher_inst.NUM_OF_BUCKETS = NUM_OF_BUCKETS;
+defparam window_hasher_inst.WINDOW_SIZE = WINDOW_SIZE;
+defparam window_hasher_inst.KMER_SIZE = KMER_SIZE;
+
+hash_table hash_table_inst (
+	// Inputs
+	.clk             (clk             ),
+	.reset_hash_table(reset_hash_table),
+	.is_insert       (is_insert       ),
+	.is_query        (is_query        ),
+	.window_id       (window_id       ),
+	.hashed_sketch   (hashed_sketch   ),
+	
+	// Outputs
+	.count_bus       (count_bus       )
+);
+defparam hash_table_inst.SKETCH_SIZE = SKETCH_SIZE;
+defparam hash_table_inst.NUM_OF_BUCKETS = NUM_OF_BUCKETS;
+defparam hash_table_inst.BUCKET_SIZE = BUCKET_SIZE;
+defparam hash_table_inst.MAX_WINDOWS_IN_REFERENCE = MAX_WINDOWS_IN_REFERENCE;
+
+stats stats_inst (
+	// Inputs
+	.clk                     (clk                     ),
+	.reset_stats             (reset_stats             ),
+	.is_query                (is_query                ),
+	.count_bus               (count_bus               ),
+	.calculate_matched_window(calculate_matched_window),
+	
+	// Outputs
+	.matched_window_id       (matched_window_id       )
+);
+defparam stats_inst.MAX_WINDOWS_IN_REFERENCE = MAX_WINDOWS_IN_REFERENCE;
+defparam stats_inst.BUCKET_SIZE = BUCKET_SIZE;
+defparam stats_inst.WINDOWS_PER_QUERY = WINDOWS_PER_QUERY;
+defparam stats_inst.MAX_WINDOWS_IN_READ = MAX_WINDOWS_IN_READ;
+// ==================================================
+
+endmodule

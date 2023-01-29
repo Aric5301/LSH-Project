@@ -7,6 +7,7 @@ all :		_VCSgd_TwQtnc_1.db \
 	_VCSgd_whcQde_1.db \
 	_VCSgd_GOJyqd_1.db \
 	_VCSgd_waTvEc_1.db \
+	_VCSgd_bcStFd_1.db \
 
 
 
@@ -28,5 +29,9 @@ _VCSgd_GOJyqd_1.db :	work/window_hasher.sv
 
 _VCSgd_waTvEc_1.db :	work/main.sv 
 		${VLOGAN}  ${VLOGAN_OPT} work/main.sv
+
+
+_VCSgd_bcStFd_1.db :	work/top_level.sv 
+		${VLOGAN}  ${VLOGAN_OPT} work/top_level.sv
 
 

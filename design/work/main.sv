@@ -20,7 +20,7 @@ module main #(
 
 // Wires
 // ==================================================
-// Interface between main and other modules
+// Interface between main and top level
 logic                            hashing_is_done;
 logic                            calculate_matched_window;
 logic                            reset_stats;
@@ -33,66 +33,39 @@ logic                        	 reset_window_hasher;
 logic                            is_insert;
 logic                            is_query;
 logic signed [31:0]              matched_window_id;
-
-// Inner interfaces between modules
-logic  [$clog2(NUM_OF_BUCKETS)-1:0] hashed_sketch [0:SKETCH_SIZE-1];
-logic  [31:0]                       count_bus     [0:MAX_WINDOWS_IN_REFERENCE-1];
 // ==================================================
 
 
-// Modules Instantiation
+// Top Level Instantiation
 // ==================================================
-window_hasher window_hasher_inst (
-	// Inputs
-	.clk                (clk                ),
-	.reset_window_hasher(reset_window_hasher),
-	.ready_for_hashing  (ready_for_hashing  ),
-	.window             (window             ),
-	
-	// Outputs
-	.hashed_sketch      (hashed_sketch      ),
-	.hashing_is_done    (hashing_is_done    )
-);
-defparam window_hasher_inst.SKETCH_SIZE = SKETCH_SIZE;
-defparam window_hasher_inst.NUM_OF_BUCKETS = NUM_OF_BUCKETS;
-defparam window_hasher_inst.WINDOW_SIZE = WINDOW_SIZE;
-defparam window_hasher_inst.KMER_SIZE = KMER_SIZE;
-
-hash_table hash_table_inst (
-	// Inputs
-	.clk             (clk             ),
-	.reset_hash_table(reset_hash_table),
-	.is_insert       (is_insert       ),
-	.is_query        (is_query        ),
-	.window_id       (window_id       ),
-	.hashed_sketch   (hashed_sketch   ),
-	
-	// Outputs
-	.count_bus       (count_bus       )
-);
-defparam hash_table_inst.SKETCH_SIZE = SKETCH_SIZE;
-defparam hash_table_inst.NUM_OF_BUCKETS = NUM_OF_BUCKETS;
-defparam hash_table_inst.BUCKET_SIZE = BUCKET_SIZE;
-defparam hash_table_inst.MAX_WINDOWS_IN_REFERENCE = MAX_WINDOWS_IN_REFERENCE;
-
-stats stats_inst (
-	// Inputs
-	.clk                     (clk                     ),
-	.reset_stats             (reset_stats             ),
-	.is_query                (is_query                ),
-	.count_bus               (count_bus               ),
+top_level top_level_inst (
 	.calculate_matched_window(calculate_matched_window),
+	.reset_stats(reset_stats),
+	.clk(clk),
+	.reset_hash_table(reset_hash_table),
+	.window(window),
+	.window_id(window_id),
+	.ready_for_hashing(ready_for_hashing),
+	.reset_window_hasher(reset_window_hasher),
+	.is_insert(is_insert),
+	.is_query(is_query),
 	
-	// Outputs
-	.matched_window_id       (matched_window_id       )
+	.hashing_is_done(hashing_is_done),
+	.matched_window_id(matched_window_id)
 );
-defparam stats_inst.MAX_WINDOWS_IN_REFERENCE = MAX_WINDOWS_IN_REFERENCE;
-defparam stats_inst.BUCKET_SIZE = BUCKET_SIZE;
-defparam stats_inst.WINDOWS_PER_QUERY = WINDOWS_PER_QUERY;
-defparam stats_inst.MAX_WINDOWS_IN_READ = MAX_WINDOWS_IN_READ;
+defparam top_level_inst.WINDOW_SIZE = WINDOW_SIZE;
+defparam top_level_inst.KMER_SIZE = KMER_SIZE;
+defparam top_level_inst.SKETCH_SIZE = SKETCH_SIZE;
+defparam top_level_inst.NUM_OF_BUCKETS = NUM_OF_BUCKETS;
+defparam top_level_inst.BUCKET_SIZE = BUCKET_SIZE;
+defparam top_level_inst.MAX_WINDOWS_IN_REFERENCE = MAX_WINDOWS_IN_REFERENCE;
+defparam top_level_inst.MAX_WINDOWS_IN_READ = MAX_WINDOWS_IN_READ;
+defparam top_level_inst.WINDOWS_PER_QUERY = WINDOWS_PER_QUERY;
 // ==================================================
+
 
 always #1 clk=~clk; // Creation of a clock
+
 
 task reset_all();
 	clk = 1'b0;
@@ -115,6 +88,7 @@ task reset_all();
 	reset_stats = 1'b0;
 endtask
 
+
 // Variables
 // ==================================================
 int char;
@@ -125,6 +99,7 @@ logic was_reading_cancelled;
 
 string read_file_name;
 // ==================================================
+
 
 // Reads windows from given reference or read file and feed them to hardware
 task read_and_feed_windows(int fd, logic is_reference);
@@ -269,4 +244,5 @@ initial begin
 	end	
 end
 // ==================================================
+
 endmodule
